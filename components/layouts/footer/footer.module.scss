@@ -1,0 +1,108 @@
+.footer
+{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10rem;
+    padding: 4rem 4rem;
+    background: var(--color-blue-dark);
+
+    *
+    {
+        font-size: 1rem;
+    }
+
+    & hr
+    {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        border-color: #34404b;
+    }
+
+    &Menu
+    {
+        display: flex;
+        align-items: center;
+
+        gap: 3rem;
+        width: 100%;
+        margin: auto;
+        max-width: 150rem;
+
+        &Item
+        {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            cursor: pointer;
+
+            &Link
+            {
+                font-size: 1.5rem;
+                transition: all .2s;
+
+                &:hover
+                {
+                    color: var(--color-secondary);
+                }
+            }
+        }
+    }
+
+    &Main
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        margin: auto;
+        max-width: 150rem;
+
+        &ErrorReport
+        {
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all .2s;
+
+            & svg
+            {
+                margin-right: 1rem;
+                transition: all .2s;
+            }
+
+            &:hover
+            {
+                color: var(--color-yellow);
+
+                & svg
+                {
+                    fill: var(--color-yellow);
+                }
+            }
+        }
+
+        &Social
+        {
+            &List
+            {
+                display: flex;
+                align-items: center;
+
+                gap: 1rem;
+            }
+
+            &Item
+            {
+                color: var(--color-primary);
+                transition: all .2s;
+
+                &:hover
+                {
+                    fill: var(--color-secondary);
+                }
+            }
+        }
+    }
+}

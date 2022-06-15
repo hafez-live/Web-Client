@@ -1,0 +1,44 @@
+.home
+{
+    &Header
+    {
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+
+        min-height: 90vh;
+        text-align: center;
+        background: linear-gradient(60deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+
+        & *
+        {
+            color: white;
+        }
+
+        & > div
+        {
+            margin: auto auto 0;
+            width: 100%;
+        }
+
+        &Content
+        {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            & h1
+            {
+                font-size: 6rem;
+            }
+
+            & h2
+            {
+                font-size: 4.5rem;
+                color: #d3cfe7;
+                font-family: 'YekanBakhRegular', sans-serif;
+            }
+        }
+    }
+}

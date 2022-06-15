@@ -1,0 +1,87 @@
+.nav
+{
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 110;
+    top: 2rem;
+
+    height: 8rem;
+    width: 90%;
+    background: rgba( 255, 255, 255, 0.8 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border-radius: 1rem;
+
+    &Logo
+    {
+        max-height: 100%;
+        margin: 1rem 4rem 1rem 0;
+
+        & img
+        {
+            height: 90%;
+        }
+    }
+
+    &ItemLinks
+    {
+        display: flex;
+        align-items: center;
+
+        &List
+        {
+            padding-right: 4rem;
+        }
+
+        &Link
+        {
+            font-size: 2rem;
+            font-weight: 600;
+            transition: all .2s;
+
+            &:hover,
+            &:active
+            {
+                color: var(--color-font-secondary);
+            }
+        }
+    }
+
+    &ItemSocial
+    {
+        display: flex;
+        align-items: center;
+        margin-left: 4rem;
+
+        &List
+        {
+            padding: 1rem;
+        }
+
+        &Link
+        {
+            display: flex;
+            align-items: center;
+
+            font-size: 2.75rem;
+            font-weight: 600;
+
+            & *
+            {
+                transition: all .2s;
+            }
+
+            &:hover *,
+            &:active *
+            {
+                color: var(--color-font-secondary);
+            }
+        }
+    }
+}
