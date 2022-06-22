@@ -1,11 +1,10 @@
 {
-    "name": "word",
+    "name": "Hafez-Client",
     "version": "1.0.0",
-    "private": true,
     "author": {
-        "email": "IntelligentQuantum@ProtonMail.Com",
-        "name": "IntelligentQuantum",
-        "url": ""
+        "email": "contact@parsa-firoozi.ir",
+        "name": "im-parsa",
+        "url": "https://parsa-firoozi.ir"
     },
     "scripts": {
         "dev": "next dev",
