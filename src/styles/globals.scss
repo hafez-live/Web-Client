@@ -1,0 +1,78 @@
+@import "base/typography";
+@import "base/utilities";
+
+:root
+{
+    --color-background-primary: #f7f6fa;
+    --color-background-secondary: #d3cfe7;
+    --color-background-tertiary: #9993c7;
+    --color-primary: #423d91;
+    --color-secondary: #7874d7;
+    --color-tertiary: #2d2b6d;
+    --color-font-primary: #2d2d43;
+    --color-font-secondary: #5f5f8d;
+    --color-font-tertiary: #7c7cab;
+}
+
+*,
+*::before,
+*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    direction: rtl;
+    text-align: right;
+    color: var(--color-font-primary);
+    font-family: 'YekanBakh', sans-serif;
+}
+
+html
+{
+    direction: rtl;
+    font-size: 62.5%;
+}
+
+body
+{
+    box-sizing: border-box;
+    font-family: 'YekanBakh', sans-serif;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--color-blue-dark);
+}
+
+strong
+{
+    font-family: 'YekanBakhHeavy', sans-serif;
+}
+
+p
+{
+    color: var(--color-blue-dark);
+}
+
+li
+{
+    list-style: none;
+}
+
+#__next
+{
+    color: var(--color-font-primary);
+    overflow: hidden;
+}
+
+.container
+{
+    max-width: 140rem;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 140rem)
+    {
+        padding: 0 1.5rem;
+    }
+}

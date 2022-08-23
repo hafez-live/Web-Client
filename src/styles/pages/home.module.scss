@@ -167,8 +167,7 @@
 
             position: relative;
             background: var(--color-background-primary);
-            padding: 2rem;
-            padding-top: 10rem;
+            padding: 10rem 2rem 2rem;
             border-radius: 1rem;
             height: auto;
 
@@ -199,13 +198,13 @@
                 }
             }
 
-            & > h2
+            & > h3
             {
                 font-size: 2rem;
                 color: var(--color-font-tertiary);
             }
 
-            &Parent > div
+            &Parent
             {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -219,42 +218,68 @@
 
     &AboutUs
     {
-        & > div
-        {
-            display: flex;
-            flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
-            & h3
+        & h6
+        {
+            font-size: 3rem;
+            color: var(--color-font-primary);
+            padding-bottom: 2rem;
+        }
+        & h2
+        {
+            font-size: 2rem;
+            line-height: 3.5rem;
+            color: var(--color-font-secondary);
+
+            *
             {
-                font-size: 3rem;
-                color: var(--color-font-primary);
-                padding-bottom: 2rem;
-            }
-            & h4
-            {
+                padding: 0 5rem 0 1rem;
                 font-size: 2rem;
                 color: var(--color-font-secondary);
-
-                *
-                {
-                    padding: 0 1rem;
-                    padding-right: 5rem;
-                    font-size: 2rem;
-                    color: var(--color-font-secondary);
-                }
             }
         }
     }
 
     &Blogs
     {
-        padding: 10rem 0;
+        padding: 10rem 0 0;
+
+        width: 100%;
+
+        & h6
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: 3rem;
+            color: var(--color-font-primary);
+            padding-bottom: 2rem;
+
+            & > a
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .75rem;
+
+                font-size: 1.75rem;
+                color: var(--color-font-secondary);
+
+                & > svg
+                {
+                    fill: var(--color-font-secondary);
+                }
+            }
+        }
 
         & > div
         {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
-            grid-template-rows: repeat(3, 20rem);
+            grid-template-rows: repeat(2, 20rem);
             gap: 1rem;
 
             width: 100%;
@@ -262,8 +287,9 @@
             & > a
             {
                 display: flex;
-                align-items: center;
-                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: flex-end;
 
                 position: relative;
 
@@ -272,54 +298,135 @@
                 border-radius: 1.5rem;
                 background: var(--color-background-secondary);
 
-                &:first-child
+                &:after
                 {
+                    content: '';
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 100%;
+                    transition: all .2s;
+                    opacity: .7;
+                    background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.1) 0%, rgba(55, 40, 81, 0.9) 100%) 0 0 no-repeat padding-box;
+                }
+
+                &:hover:after
+                {
+                    opacity: .8;
+                }
+
+                & > h4,
+                & > h5
+                {
+                    position: relative;
+                    z-index: 100;
+
+                    font-size: 3rem;
+                    color: var(--color-background-primary);
+
+                    padding: 0 4rem 1rem;
+                }
+
+                & > h5
+                {
+                    padding-bottom: 2rem;
+                    font-size: 2rem;
+                }
+
+                &:nth-child(1)
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 3;
+                }
+
+                &:nth-child(2)
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 1 / 2;
+
                     &:after
                     {
-                        content: '';
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        transition: all .2s;
-                        opacity: .7;
-                        background: transparent linear-gradient(180deg, rgba(158, 133, 178, 0) 0%, rgba(157, 139, 192, 0.9) 100%) 0 0 no-repeat padding-box;
+                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.2) 0%, rgba(55, 40, 81, 0.9) 100%) 0 0 no-repeat padding-box;
                     }
+                }
 
-                    &:hover:after
+                &:nth-child(3)
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+
+                    &:after
                     {
-                        opacity: .8;
+                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.2) 0%, rgba(55, 40, 81, 0.9) 100%) 0 0 no-repeat padding-box;
                     }
                 }
 
                 & img
                 {
                     position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    transform: translate(-50%, -50%);
                     min-width: 100%;
                     min-height: 100%;
                 }
             }
+        }
+    }
 
-            & > a:nth-child(1)
+    &Poems
+    {
+        padding: 10rem 0;
+
+        width: 100%;
+
+        & h6
+        {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: 3rem;
+            color: var(--color-font-primary);
+            padding-bottom: 2rem;
+
+            & > a
             {
-                grid-column: 1 / 2;
-                grid-row: 1 / 3;
-            }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .75rem;
 
-            & > a:nth-child(2)
+                font-size: 1.75rem;
+                color: var(--color-font-secondary);
+
+                & > svg
+                {
+                    fill: var(--color-font-secondary);
+                }
+            }
+        }
+
+        &List
+        {
+            width: 100%;
+
+            & > div
             {
-                grid-column: 2 / 3;
-                grid-row: 1 / 2;
-
-                background: transparent;
+                width: 100%;
             }
+        }
 
-            & > a:nth-child(3)
-            {
-                grid-column: 2 / 3;
-                grid-row: 2 / 3;
-
-                background: transparent;
-            }
+        &Item
+        {
+            border-radius: 1rem;
+            background-color: var(--color-background-primary);
+            min-height: 20rem;
         }
     }
 }

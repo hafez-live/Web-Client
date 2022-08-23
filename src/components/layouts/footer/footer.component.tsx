@@ -1,3 +1,4 @@
+import React from 'react';
 import { BsDiscord, BsExclamationTriangleFill, BsGithub, BsInstagram } from 'react-icons/bs';
 
 import styles from './footer.module.scss';

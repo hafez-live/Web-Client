@@ -8,7 +8,7 @@ interface MainProps
 const Main = ({ children }: MainProps) =>
 {
     return (
-        <main>
+        <main className='container'>
             { children }
         </main>
     );
