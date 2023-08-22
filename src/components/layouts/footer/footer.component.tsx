@@ -2,61 +2,50 @@ import React from 'react';
 import { BsDiscord, BsExclamationTriangleFill, BsGithub, BsInstagram } from 'react-icons/bs';
 
 import styles from './footer.module.scss';
+import Link from "next/link";
 
 function Footer()
 {
     return (
-        <footer className={styles.footer}>
-            <ul className={styles.footerMenu}>
-                <li className={styles.footerIMenuItem}>
-                    <a className={styles.footerMenuItemLink} href='/'>
-                        Home
-                    </a>
-                </li>
-                <li className={styles.footerIMenuItem}>
-                    <a className={styles.footerMenuItemLink} href='/'>
-                        Dictionary
-                    </a>
-                </li>
-                <li className={styles.footerIMenuItem}>
-                    <a className={styles.footerMenuItemLink} href='/'>
-                        Flash Cards
-                    </a>
-                </li>
-                <li className={styles.footerIMenuItem}>
-                    <a className={styles.footerMenuItemLink} href='/'>
-                        About
-                    </a>
-                </li>
-            </ul>
-            <hr />
-            <ul className={styles.footerMain}>
-                <span className={styles.footerMainErrorReport}>
-                    <BsExclamationTriangleFill />
-                    Error Report
-                </span>
-                <span className={styles.footerMainCopyright}>
-                    German Word © 2022
-                </span>
-                <ul className={styles.footerMainSocialList}>
-                    <li className={styles.footerMainSocialItem}>
-                        <a className={styles.footerMainSocialItemLink} href='https://www.instagram.com/german-word'>
-                            <BsInstagram size={15} />
-                        </a>
-                    </li>
-                    <li className={styles.footerMainSocialItem}>
-                        <a className={styles.footerMainSocialItemLink} href='https://github.com/intelligentquantum/german-word.ir'>
-                            <BsGithub size={15} />
-                        </a>
-                    </li>
-                    <li className={styles.footerMainSocialItem}>
-                        <a className={styles.footerMainSocialItemLink} href='https://discord.gg/V87k9kTzRg'>
-                            <BsDiscord size={15} />
-                        </a>
-                    </li>
+        <>
+            <svg className={styles.footerWave} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>
+                <path fillOpacity='1' d='M0,256L120,261.3C240,267,480,277,720,266.7C960,256,1200,224,1320,208L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z'/>
+            </svg>
+            <footer className={styles.footer}>
+                <ul className={styles.footerMain}>
+                    <ul className={styles.footerMenu}>
+                        <li className={styles.footerMenuItem}>
+                            <Link href='/'>
+                                صفحه‌اصلی
+                            </Link>
+                        </li>
+                        <li className={styles.footerMenuItem}>
+                            <Link href='/'>
+                                خواندنی‌ها
+                            </Link>
+                        </li>
+                        <li className={styles.footerMenuItem}>
+                            <Link href='/'>
+                                غزل تصادفی
+                            </Link>
+                        </li>
+                        <li className={styles.footerMenuItem}>
+                            <Link href='/'>
+                                راه‌های ارتباطی
+                            </Link>
+                        </li>
+                        <li className={styles.footerMenuItem}>
+                            <Link href='/'>
+                                وب‌سرویس
+                            </Link>
+                        </li>
+                    </ul>
+                    <span className={styles.footerMainCopyright}>
+                     Copyright © 2023 Hafez-Shirazi.
+                    </span>
                 </ul>
-            </ul>
-        </footer>
+            </footer>
+        </>
     );
 }
 

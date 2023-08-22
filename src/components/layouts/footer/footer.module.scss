@@ -3,20 +3,18 @@
     display: flex;
     flex-direction: column;
 
-    margin-top: 10rem;
     padding: 4rem 4rem;
-    background: var(--color-blue-dark);
+    background: var(--color-background-tertiary);
 
     *
     {
         font-size: 1rem;
     }
 
-    & hr
+    &Wave
     {
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
-        border-color: #34404b;
+        margin-bottom: -2rem;
+        fill: var(--color-background-tertiary);
     }
 
     &Menu
@@ -27,7 +25,6 @@
         gap: 3rem;
         width: 100%;
         margin: auto;
-        max-width: 150rem;
 
         &Item
         {
@@ -37,14 +34,14 @@
 
             cursor: pointer;
 
-            &Link
+            & > a
             {
                 font-size: 1.5rem;
                 transition: all .2s;
 
                 &:hover
                 {
-                    color: var(--color-secondary);
+                    color: var(--color-background-primary);
                 }
             }
         }
@@ -58,51 +55,16 @@
 
         width: 100%;
         margin: auto;
-        max-width: 150rem;
+        max-width: 140rem;
 
-        &ErrorReport
+        &Copyright
         {
-            cursor: pointer;
-            font-size: 1.25rem;
-            transition: all .2s;
-
-            & svg
-            {
-                margin-right: 1rem;
-                transition: all .2s;
-            }
-
-            &:hover
-            {
-                color: var(--color-yellow);
-
-                & svg
-                {
-                    fill: var(--color-yellow);
-                }
-            }
-        }
-
-        &Social
-        {
-            &List
-            {
-                display: flex;
-                align-items: center;
-
-                gap: 1rem;
-            }
-
-            &Item
-            {
-                color: var(--color-primary);
-                transition: all .2s;
-
-                &:hover
-                {
-                    fill: var(--color-secondary);
-                }
-            }
+            font-family: SansSerif, sans-serif;
+            white-space: nowrap;
+            word-wrap: anywhere;
+            font-size: 1.5rem;
+            text-align: left;
+            direction: ltr;
         }
     }
 }

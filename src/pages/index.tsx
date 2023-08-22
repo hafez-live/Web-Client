@@ -49,9 +49,7 @@ const Home: NextPage = () =>
                     </div>
                 </div>
                 <div>
-                    <svg className="waves" xmlns="http://www.w3.org/2000/svg"
-                         xmlnsXlink="http://www.w3.org/1999/xlink"
-                         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                         <defs>
                             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
                         </defs>
@@ -68,16 +66,72 @@ const Home: NextPage = () =>
             <Main>
                 <section className={styles.homeHeaderBoxParent}>
                     <div className={styles.homeHeaderBox}>
-                        <i className={styles.homeHeaderBoxIcon}><FaBook /></i>
-                        <h3 className={styles.homeHeaderBoxParagraph}>بیش از ۱۰۰۰ اشعار و غزلیات برتر حافظ</h3>
+                        <i className={styles.homeHeaderBoxIcon}>
+                            <FaBook />
+                        </i>
+                        <h3 className={styles.homeHeaderBoxHeader}>
+                            بیش از ۱۰۰۰ اشعار و غزلیات برتر حافظ
+                        </h3>
+                        <p className={styles.homeHeaderBoxParagraph}>
+                            شما با استفاده از سرویس‌ما اختصاصی و پرسرعت‌ حافظ شیرازی می‌توانید به تمامی اشعار ثبت شده حافظ دسترسی داشته باشید و آزادانه از آن استفاده کنید
+                        </p>
                     </div>
                     <div className={styles.homeHeaderBox}>
-                        <i className={styles.homeHeaderBoxIcon}><FaBook /></i>
-                        <h3 className={styles.homeHeaderBoxParagraph}>معانی تمامی کلمات و کنایه های اشعار حافظ</h3>
+                        <i className={styles.homeHeaderBoxIcon}>
+                            <FaBook />
+                        </i>
+                        <h3 className={styles.homeHeaderBoxHeader}>
+                            معانی تمامی کلمات و کنایه های اشعار حافظ
+                        </h3>
+                        <p className={styles.homeHeaderBoxParagraph}>
+                            معنای دقیق و واضح کلمه به کلمه به همراه نقش ادبی آن جمع‌آوری شده از معتبرترین مرجع دستورادبی با سوریس حافظ شیرازی
+                        </p>
                     </div>
                     <div className={styles.homeHeaderBox}>
-                        <i className={styles.homeHeaderBoxIcon}><FaBook /></i>
-                        <h3 className={styles.homeHeaderBoxParagraph}>گرفتن فال و شرح معنای درونی غزلیات حافظ</h3>
+                        <i className={styles.homeHeaderBoxIcon}>
+                            <FaBook />
+                        </i>
+                        <h3 className={styles.homeHeaderBoxHeader}>
+                            گرفتن فال و شرح معنای درونی غزلیات حافظ
+                        </h3>
+                        <p className={styles.homeHeaderBoxParagraph}>
+                            معتبر ترین شرح و معنای اشعار حافظ گردآوری شده از مراجع برتر این زمینه به همراه فال اختصاصی غزل در بهترین وب‌سرویس حافظ شیرازی
+                        </p>
+                    </div>
+                </section>
+
+                <section className={styles.homeFeatures}>
+                    <div className={styles.homeFeaturesBox}>
+                        <span className={styles.homeFeaturesHeader}>
+                            ۱۰۰۰+
+                        </span>
+                        <span className={styles.homeFeaturesParagraph}>
+                            غزل ثبت شده
+                        </span>
+                    </div>
+                    <div className={styles.homeFeaturesBox}>
+                        <span className={styles.homeFeaturesHeader}>
+                            ۱۰۰۰+
+                        </span>
+                        <span className={styles.homeFeaturesParagraph}>
+                            تعبیر و فال
+                        </span>
+                    </div>
+                    <div className={styles.homeFeaturesBox}>
+                        <span className={styles.homeFeaturesHeader}>
+                            ۱۰۰۰+
+                        </span>
+                        <span className={styles.homeFeaturesParagraph}>
+                            دستورزبانی کلمات
+                        </span>
+                    </div>
+                    <div className={styles.homeFeaturesBox}>
+                        <span className={styles.homeFeaturesHeader}>
+                            ۱۰۰۰+
+                        </span>
+                        <span className={styles.homeFeaturesParagraph}>
+                            معنی واژگان
+                        </span>
                     </div>
                 </section>
 
@@ -183,6 +237,30 @@ const Home: NextPage = () =>
 
                             </SwiperSlide>
                         </Swiper>
+                    </div>
+                </section>
+
+                <section className={styles.homeApi}>
+                    <div className={styles.homeApiContent}>
+                        <h4 className={styles.homeApiHeader}>
+                            وب‌سرویس اختصاصی و پرسرعت غزلیات حافظ شیرازی
+                        </h4>
+                        <p className={styles.homeApiParagraph}>
+                            با این وب‌سرویس شما به تمامی اشعار و غزلیات ثبت شده حافظ شیرازی، معنای کلمه به کلمه به همراه نقش دستوری آن، معنا و مفهوم غزل با فال و معنای پنهان مربوط به آن دسترسی پیدا خواهید کرد.
+                        </p>
+                        <span className={styles.homeApiSpan}>
+                            جهت دریافت دسترسی به وب‌سوریس ایمیل خود را ثبت کنید
+                        </span>
+                    </div>
+                    <div className={styles.homeApiSubmit}>
+                        <input
+                            className={styles.homeApiInput}
+                            placeholder='آدرس ایمیل شما'
+                            type='email'
+                        />
+                        <button className={styles.homeApiButton}>
+                            ثبت
+                        </button>
                     </div>
                 </section>
             </Main>
