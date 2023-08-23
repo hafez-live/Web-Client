@@ -30,12 +30,14 @@
 
             & h1
             {
+                text-align: center;
                 margin-top: 8rem;
                 font-size: 6rem;
             }
 
             & h2
             {
+                text-align: center;
                 font-size: 4.5rem;
                 color: #d3cfe7;
                 font-family: 'YekanBakhRegular', sans-serif;
@@ -237,8 +239,14 @@
         & h2
         {
             font-size: 2rem;
-            line-height: 3.5rem;
+            font-weight: 400;
+            line-height: 4.5rem;
             color: var(--color-font-secondary);
+
+            & > strong
+            {
+                font-weight: 500;
+            }
 
             *
             {
@@ -274,10 +282,21 @@
 
                 font-size: 1.75rem;
                 color: var(--color-font-secondary);
+                transition: all .2s;
 
                 & > svg
                 {
                     fill: var(--color-font-secondary);
+                }
+
+                &:hover
+                {
+                    color: var(--color-font-tertiary);
+
+                    & > svg
+                    {
+                        fill: var(--color-font-tertiary);
+                    }
                 }
             }
         }
@@ -357,7 +376,7 @@
 
                     &:after
                     {
-                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.2) 0%, rgba(55, 40, 81, 0.9) 70%) 0 0 no-repeat padding-box;
+                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.75) 20%, rgba(55, 40, 81, 0.9) 70%) 0 0 no-repeat padding-box;
                     }
                 }
 
@@ -368,7 +387,7 @@
 
                     &:after
                     {
-                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.2) 0%, rgba(55, 40, 81, 0.9) 70%) 0 0 no-repeat padding-box;
+                        background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.75) 20%, rgba(55, 40, 81, 0.9) 70%) 0 0 no-repeat padding-box;
                     }
                 }
 
@@ -409,12 +428,23 @@
                 justify-content: center;
                 gap: .75rem;
 
+                transition: all .2s;
                 font-size: 1.75rem;
                 color: var(--color-font-secondary);
 
                 & > svg
                 {
                     fill: var(--color-font-secondary);
+                }
+
+                &:hover
+                {
+                    color: var(--color-font-tertiary);
+
+                    & > svg
+                    {
+                        fill: var(--color-font-tertiary);
+                    }
                 }
             }
         }

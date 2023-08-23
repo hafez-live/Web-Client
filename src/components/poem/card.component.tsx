@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 import styles from './poem.module.scss';
 
-import { Newline } from '../../utils/helper';
+import { Newline } from '@/utils/helper';
 
 const PoemCard = () =>
 {
     return (
-        <div className={styles.poemCard}>
+        <Link href='/' className={styles.poemCard}>
             <span className={styles.poemCardHeader}>
                 غزل شماره ۱
             </span>
@@ -21,7 +21,7 @@ const PoemCard = () =>
                     </Link>
                 </p>
             </div>
-        </div>
+        </Link>
     );
 };
 

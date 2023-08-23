@@ -27,7 +27,7 @@ const Home: NextPage = () =>
             <header className={styles.homeHeader}>
                 <div className={styles.homeHeaderContent}>
                     <h1>اشعار و غزلیات حافظ شیرازی</h1>
-                    <h2>وبسایت اختصاصی حافظ شیرازی معروف ترین غزل سرای ایران</h2>
+                    <h2>حافظ‌هاب وبسایت اختصاصی حافظ شیرازی معروف ترین غزل سرای ایران</h2>
                     <form>
                         <input
                             type='text'
