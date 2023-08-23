@@ -5,9 +5,12 @@
         "es2021": true,
         "node": true
     },
-    "extends": "next/core-web-vitals",
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
     "rules":
     {
+        "no-console": "warn",
         "@next/next/no-server-import-in-page": "off",
         "@next/next/no-script-in-document": "off",
         "semi": ["error", "always"],
@@ -18,11 +21,18 @@
             "error", 4,
             {
                 "SwitchCase": 1,
-                "VariableDeclarator": 1
+                "VariableDeclarator": 1,
+                "ignoredNodes":
+                [
+                    "PropertyDefinition[decorators]",
+                    "TSUnionType",
+                    "FunctionExpression[params]:has(Identifier[decorators])"
+                ]
             }
         ],
         "template-curly-spacing": ["error", "always"],
         "space-before-function-paren": ["error", "never"],
+        "no-unexpected-multiline": "off",
         "quotes":
         [
             2, "single",

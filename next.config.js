@@ -1,13 +1,35 @@
-/** @type {import('next').NextConfig} */
-const path = require('path');
+require('dotenv').config({ path: '../../.env' });
 
 const nextConfig =
-{
-    reactStrictMode: true,
-    sassOptions:
     {
-        includePaths: [path.join(__dirname, 'styles')],
-    },
-}
+        webpack(config)
+        {
+            config.module.rules.push
+            ({
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ['@svgr/webpack'],
+            });
+
+            return config;
+        },
+        images:
+            {
+                remotePatterns:
+                    [
+                        {
+                            protocol: 'https',
+                            hostname: '**'
+                        },
+                        {
+                            protocol: 'http',
+                            hostname: '**'
+                        }
+                    ]
+            },
+        transpilePackages: ['../common'],
+        reactStrictMode: true,
+        swcMinify: true
+    };
 
 module.exports = nextConfig;

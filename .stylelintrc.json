@@ -1,16 +1,18 @@
 {
-    "extends": "stylelint-config-standard",
+    "extends": "stylelint-config-standard-scss",
     "rules":
     {
         "at-rule-no-unknown": null,
         "selector-id-pattern": null,
-        "indentation": 4,
         "selector-class-pattern": null,
         "block-opening-brace-space-before": null,
-        "unit-allowed-list": ["fr", "deg", "px", "em", "rem", "%", "s", "vw", "vh"],
+        "unit-allowed-list": ["fr", "deg", "px", "em", "rem", "%", "s", "vw", "vh", "mm"],
         "declaration-empty-line-before": null,
-        "no-descending-specificity": null
+        "declaration-block-no-redundant-longhand-properties": null,
+        "no-descending-specificity": null,
+        "media-feature-range-notation": null,
+        "rule-empty-line-before": null,
+        "keyframe-block-no-duplicate-selectors": null
     },
-    "customSyntax": "postcss-scss",
     "ignoreFiles": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"]
 }

@@ -18,6 +18,24 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 1rem;
 
+    &[data-secondery='true']
+    {
+        box-shadow: 0 8px 32px 0 rgba(85, 56, 189, 0.5);
+        background: linear-gradient(60deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        border: none;
+
+        & *
+        {
+            color: white;
+
+            &:hover,
+            &:active
+            {
+                color: var(--color-background-secondary) !important;
+            }
+        }
+    }
+
     &Logo
     {
         max-height: 100%;
@@ -42,7 +60,7 @@
         &Link
         {
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 500;
             transition: all .2s;
 
             &:hover,
@@ -55,13 +73,14 @@
 
     &ItemSocial
     {
-        display: flex;
-        align-items: center;
-        margin-left: 4rem;
 
         &List
         {
-            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            margin-left: 4rem;
         }
 
         &Link
