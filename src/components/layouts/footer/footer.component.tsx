@@ -1,10 +1,9 @@
 import React from 'react';
-import { BsDiscord, BsExclamationTriangleFill, BsGithub, BsInstagram } from 'react-icons/bs';
+import Link from 'next/link';
 
 import styles from './footer.module.scss';
-import Link from "next/link";
 
-function Footer()
+const Footer = () =>
 {
     return (
         <>

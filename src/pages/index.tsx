@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import type { NextPage } from 'next';
-import { Autoplay, Keyboard } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowLeft, FaSearch, FaBook } from 'react-icons/fa';
 
+import PoemList from '../components/poem/list.component';
 import Main from '../components/layouts/main/main.component';
+
 import Blog1 from '../../public/static/images/blogs/blog-1.jpg';
 
 import 'swiper/css';
@@ -212,31 +212,7 @@ const Home: NextPage = () =>
                         </Link>
                     </h6>
                     <div className={styles.homePoemsList}>
-                        <Swiper
-                            dir='ltr'
-                            modules={[ Keyboard, Autoplay ]}
-                            keyboard={{ enabled: true }}
-                            autoplay={{ delay: 2500, disableOnInteraction: false }}
-                            spaceBetween={20}
-                            breakpoints={{
-                                0: { slidesPerView: 1 },
-                                900: { slidesPerView: 2 },
-                                1400: { slidesPerView: 3 }
-                            }}
-                        >
-                            <SwiperSlide className={styles.homePoemsItem}>
-
-                            </SwiperSlide>
-                            <SwiperSlide className={styles.homePoemsItem}>
-
-                            </SwiperSlide>
-                            <SwiperSlide className={styles.homePoemsItem}>
-
-                            </SwiperSlide>
-                            <SwiperSlide className={styles.homePoemsItem}>
-
-                            </SwiperSlide>
-                        </Swiper>
+                        <PoemList />
                     </div>
                 </section>
 
@@ -265,7 +241,7 @@ const Home: NextPage = () =>
                 </section>
             </Main>
         </>
-    )
-}
+    );
+};
 
 export default Home;
