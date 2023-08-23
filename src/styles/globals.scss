@@ -71,6 +71,11 @@ li
     max-width: 140rem;
     margin: 0 auto;
 
+    &[data-blog='true']
+    {
+        max-width: 100rem;
+    }
+
     @media only screen and (max-width: 140rem)
     {
         padding: 0 1.5rem;

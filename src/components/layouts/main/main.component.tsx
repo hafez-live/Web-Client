@@ -2,13 +2,14 @@ import React from 'react';
 
 interface MainProps
 {
+    blog?: boolean;
     children: React.ReactNode;
 }
 
-const Main = ({ children }: MainProps) =>
+const Main = ({ children, blog }: MainProps) =>
 {
     return (
-        <main className='container'>
+        <main className='container' data-blog={blog}>
             { children }
         </main>
     );
