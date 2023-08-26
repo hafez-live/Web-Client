@@ -1,18 +1,17 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import type { NextPage } from 'next';
 import ReactHtmlParser from 'html-react-parser';
 import { BsCalendarFill, BsClockFill, BsEyeFill } from 'react-icons/bs';
 
 import BlogCard from '@/components/blogs/card.component';
-import Main from '../../components/layouts/main/main.component';
+import Main from '@/components/layouts/main/main.component';
 
-import Blog1 from '../../../public/static/images/blogs/blog-1.jpg';
+import Blog1 from '@/../public/static/images/blogs/blog-1.jpg';
 
-import styles from '../../styles/pages/blogs.module.scss';
+import styles from '@/styles/pages/blogs.module.scss';
 
-const Home: NextPage = () =>
+const Blog = () =>
 {
     return (
         <>
@@ -86,4 +85,4 @@ const Home: NextPage = () =>
     );
 };
 
-export default Home;
+export default Blog;

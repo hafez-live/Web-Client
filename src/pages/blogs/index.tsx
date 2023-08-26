@@ -1,19 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import type { NextPage } from 'next';
 
-import Main from '../../components/layouts/main/main.component';
-
-import Blog1 from '../../../public/static/images/blogs/blog-1.jpg';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-import styles from '../../styles/pages/blogs.module.scss';
 import BlogCard from '@/components/blogs/card.component';
+import Main from '@/components/layouts/main/main.component';
 
-const Home: NextPage = () =>
+import Blog1 from '@/../public/static/images/blogs/blog-1.jpg';
+
+import styles from '@/styles/pages/blogs.module.scss';
+
+const Blogs = () =>
 {
     return (
         <>
@@ -88,4 +84,4 @@ const Home: NextPage = () =>
     );
 };
 
-export default Home;
+export default Blogs;

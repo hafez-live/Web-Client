@@ -1,5 +1,6 @@
 @import "base/typography";
-@import "base/utilities";
+@import "base/typography";
+@import "components/book.module";
 
 :root
 {
@@ -81,3 +82,4 @@ li
         padding: 0 1.5rem;
     }
 }
+
