@@ -23,18 +23,19 @@ const Navbar = () =>
                         صفحه اصلی
                     </Link>
                 </li>
+
                 <li className={styles.navItemLinksList}>
-                    <Link className={styles.navItemLinksLink} href='/'>
+                    <Link className={styles.navItemLinksLink} href='/blogs'>
                         خواندنی‌ها
                     </Link>
                 </li>
                 <li className={styles.navItemLinksList}>
-                    <Link className={styles.navItemLinksLink} href='/'>
-                        غزل تصادفی
+                    <Link className={styles.navItemLinksLink} href='/poems'>
+                        غزلیات حافظ
                     </Link>
                 </li>
                 <li className={styles.navItemLinksList}>
-                    <Link className={styles.navItemLinksLink} href='/'>
+                    <Link className={styles.navItemLinksLink} href='/contact-us'>
                         راه های ارتباطی
                     </Link>
                 </li>

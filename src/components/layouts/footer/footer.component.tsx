@@ -19,33 +19,33 @@ const Footer = () =>
                             </Link>
                         </li>
                         <li className={styles.footerMenuItem}>
-                            <Link href='/'>
+                            <Link href='/blogs'>
                                 خواندنی‌ها
                             </Link>
                         </li>
                         <li className={styles.footerMenuItem}>
-                            <Link href='/'>
-                                غزل تصادفی
+                            <Link href='/poems'>
+                                غزلیات حافظ
                             </Link>
                         </li>
                         <li className={styles.footerMenuItem}>
-                            <Link href='/'>
+                            <Link href='/contact-us'>
                                 راه‌های ارتباطی
                             </Link>
                         </li>
                         <li className={styles.footerMenuItem}>
-                            <Link href='/'>
+                            <Link href='/api'>
                                 وب‌سرویس
                             </Link>
                         </li>
                     </ul>
                     <span className={styles.footerMainCopyright}>
-                     Copyright © 2023 Hafez-Shirazi.
+                        Copyright © 2023 Hafez-Shirazi.
                     </span>
                 </ul>
             </footer>
         </>
     );
-}
+};
 
 export default Footer;
