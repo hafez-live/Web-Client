@@ -5,20 +5,20 @@ import styles from './poem.module.scss';
 
 import { Newline } from '@/utils/helper';
 
-const PoemCard = () =>
+const PoemCard = ({ poem }: any) =>
 {
     return (
-        <Link href='/' className={styles.poemCard}>
+        <Link href={`/poems/${ poem.id }`} className={styles.poemCard}>
             <span className={styles.poemCardHeader}>
-                غزل شماره ۱
+                غزل شماره { poem.id }
             </span>
             <div className={styles.poemCardParagraphs}>
-                <Newline content={'الا یا ایها الساقی ادر کاسا و ناولها\nکه عشق آسان نمود اول ولی افتاد مشکل‌ها\nبه بوی نافه‌ای کاخر صبا زان طره بگشاید\nز تاب جعد مشکینش چه خون افتاد در دل‌ها'} />
+                <Newline content={poem.content.split('\r\n').slice(0, 6).filter((item: string) => item !== '').join('\n')} />
                 <p>
-                    سلام حافظ
-                    <Link href=''>
-                        ادامه...
-                    </Link>
+                    { poem.content.split('\r\n').slice(6, 7).filter((item: string) => item !== '').join(' ').toString().substring(0,15) }...
+                    <span>
+                        ادامه غزل
+                    </span>
                 </p>
             </div>
         </Link>

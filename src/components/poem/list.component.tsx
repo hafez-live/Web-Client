@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import PoemCard from './card.component';
 
-const PoemList = () =>
+const PoemList = ({ poems }: any) =>
 {
     return (
         <Swiper
@@ -19,18 +19,14 @@ const PoemList = () =>
                 1400: { slidesPerView: 3 }
             }}
         >
-            <SwiperSlide>
-                <PoemCard />
-            </SwiperSlide>
-            <SwiperSlide>
-                <PoemCard />
-            </SwiperSlide>
-            <SwiperSlide>
-                <PoemCard />
-            </SwiperSlide>
-            <SwiperSlide>
-                <PoemCard />
-            </SwiperSlide>
+            {
+                poems.map((poem: any) =>
+                    (
+                        <SwiperSlide key={poem.id + '.POEM.HOME.LIST'}>
+                            <PoemCard poem={poem}/>
+                        </SwiperSlide>
+                    ))
+            }
         </Swiper>
     );
 };

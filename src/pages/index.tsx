@@ -1,20 +1,40 @@
-import React from 'react';
+import axios from 'axios';
 import Link from 'next/link';
 import Head from 'next/head';
-import type { NextPage } from 'next';
+import Image from 'next/image';
+import React, { useEffect } from 'react';
+import type { GetStaticProps } from 'next';
 import { FaArrowLeft, FaSearch, FaBook } from 'react-icons/fa';
 
 import PoemList from '../components/poem/list.component';
 import Main from '../components/layouts/main/main.component';
 
-import Blog1 from '../../public/static/images/blogs/blog-1.jpg';
+import { getPoems, getBlogs } from '@/lib/api';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from '../styles/pages/home.module.scss';
 
-const Home: NextPage = () =>
+const Home = ({ poems, blogs }: any) =>
 {
+    useEffect(() =>
+    {
+        (
+            async() =>
+            {
+                try
+                {
+                    console.log(await axios.get('http://localhost:4000/poem/find-all?locale=fa&page=1&limit=10'));
+                }
+                catch (e)
+                {
+                    console.log(e);
+                }
+            }
+        )();
+    }, []);
+
+
     return (
         <>
             <Head>
@@ -42,7 +62,7 @@ const Home: NextPage = () =>
                         <Link href='/poems/random'>
                             یک غزل تصادفی
                         </Link>
-                        <Link href='/biography'>
+                        <Link href='/blogs/biography'>
                             زندگی نامه حافظ
                             <FaArrowLeft />
                         </Link>
@@ -154,42 +174,27 @@ const Home: NextPage = () =>
                         </Link>
                     </h6>
                     <div>
-                        <Link href='/blogs/'>
-                            <img
-                                src={Blog1.src}
-                                alt='زندگی نامه حافظ شیرازی - جامعه حافظ شیرازی'
-                            />
-                            <h4>
-                                زندگی نامه حافظ شیرازی
-                            </h4>
-                            <h5>
-                                زندگی نامه کامل شاعر و غزل سرای شیرازی خواجه شمسُ‌الدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ معروف به حافظِ شیرازی
-                            </h5>
-                        </Link>
-                        <Link href='/blogs/'>
-                            <img
-                                src={Blog1.src}
-                                alt='زندگی نامه حافظ شیرازی - جامعه حافظ شیرازی'
-                            />
-                            <h4>
-                                زندگی نامه حافظ شیرازی
-                            </h4>
-                            <h5>
-                                زندگی نامه کامل شاعر و غزل سرای شیرازی خواجه شمسُ‌الدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ معروف به حافظِ شیرازی
-                            </h5>
-                        </Link>
-                        <Link href='/blogs/'>
-                            <img
-                                src={Blog1.src}
-                                alt='زندگی نامه حافظ شیرازی - جامعه حافظ شیرازی'
-                            />
-                            <h4>
-                                زندگی نامه حافظ شیرازی
-                            </h4>
-                            <h5>
-                                زندگی نامه کامل شاعر و غزل سرای شیرازی خواجه شمسُ‌الدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ معروف به حافظِ شیرازی
-                            </h5>
-                        </Link>
+                        {
+                            blogs.data.map((blog: any) =>
+                                (
+                                    <Link href={`/blogs/${ blog.slug }`} key={blog.slug + '.BLOG.HOME.LIST'}>
+                                        <span>
+                                            <Image
+                                                src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
+                                                alt={ blog.title_fa }
+                                                fill
+                                                sizes={'100'}
+                                            />
+                                        </span>
+                                        <h4>
+                                            { blog.title_fa }
+                                        </h4>
+                                        <h5>
+                                            { blog.summary_fa }
+                                        </h5>
+                                    </Link>
+                                ))
+                        }
                     </div>
                 </section>
 
@@ -202,7 +207,7 @@ const Home: NextPage = () =>
                         </Link>
                     </h6>
                     <div className={styles.homePoemsList}>
-                        <PoemList />
+                        <PoemList poems={poems.data}/>
                     </div>
                 </section>
 
@@ -232,6 +237,26 @@ const Home: NextPage = () =>
             </Main>
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async() =>
+{
+    let poems = { data: [] };
+    let blogs = { data: [] };
+
+    const poemsReq = await getPoems(1, 9);
+    const blogsReq = await getBlogs(1, 3, 'likes');
+
+    if (poemsReq)
+        poems = { data: poemsReq.poems };
+
+    if (blogsReq)
+        blogs = { data: blogsReq.blogs };
+
+    return {
+        props: { poems, blogs },
+        revalidate: 10
+    };
 };
 
 export default Home;

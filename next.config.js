@@ -1,5 +1,3 @@
-require('dotenv').config({ path: '../../.env' });
-
 const nextConfig =
     {
         webpack(config)
@@ -27,7 +25,6 @@ const nextConfig =
                         }
                     ]
             },
-        transpilePackages: ['../common'],
         reactStrictMode: true,
         swcMinify: true
     };
