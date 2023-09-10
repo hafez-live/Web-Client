@@ -14,7 +14,7 @@ const Navbar = () =>
     return (
         <nav className={styles.nav} data-secondery={ pathname !== '/' }>
             <div className={styles.navLogo}>
-                <img src={HafezTypography.src} alt='hafez-shirazi logo' />
+                <img src={HafezTypography.src} alt='hafez-hub logo' />
             </div>
 
             <ul className={styles.navItemLinks}>
@@ -48,7 +48,7 @@ const Navbar = () =>
 
             <ul className={styles.navItemSocialList}>
                 <li className={styles.navItemSocial}>
-                    <Link className={styles.navItemSocialLink} href='https://github.com/hafez-shirazi'>
+                    <Link className={styles.navItemSocialLink} href='https://github.com/hafez-hub'>
                         <BsGithub />
                     </Link>
                 </li>

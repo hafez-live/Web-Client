@@ -115,7 +115,6 @@ const Poems = ({ poem }: any) =>
     );
 };
 
-
 export const getStaticProps: GetStaticProps = async() =>
 {
     let poem = { };

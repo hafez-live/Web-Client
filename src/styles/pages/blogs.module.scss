@@ -72,6 +72,7 @@
             & > i
             {
                 display: flex;
+                gap: .35rem;
 
                 margin: auto 0 0 auto;
                 font-style: normal;
@@ -140,6 +141,7 @@
         & > i
         {
             display: flex;
+            gap: .35rem;
 
             margin: auto 0 0 auto;
             font-style: normal;
@@ -246,6 +248,11 @@
             font-weight: 300;
             margin-top: 1.25rem;
             color: var(--color-font-tertiary);
+
+            & > span
+            {
+                color: var(--color-font-tertiary);
+            }
 
             & > svg
             {

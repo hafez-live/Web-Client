@@ -4,16 +4,14 @@ import Image from 'next/image';
 
 import styles from '../../styles/pages/blogs.module.scss';
 
-import Blog1 from '../../../public/static/images/blogs/blog-1.jpg';
-
-const BlogCard = () =>
+const BlogCard = ({ blog }: any) =>
 {
     return (
-        <Link href='/' className={styles.blogsCard}>
+        <Link href={ '/blogs/' + blog.slug } className={styles.blogsCard}>
             <span className={styles.blogsCardImage}>
                 <Image
-                    src={ Blog1 }
-                    alt={ 'Blog' }
+                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
+                    alt={ blog.slug }
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes={'100'}
@@ -22,15 +20,15 @@ const BlogCard = () =>
             <span className={styles.blogsCardAuthor}>
                 <span>
                     <Image
-                        src={ Blog1 }
-                        alt={ 'Profile' }
+                        src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.avatar }` }
+                        alt={ blog.first_name + ' ' + blog.last_name }
                         fill
                         style={{ objectFit: 'cover' }}
                         sizes={'100'}
                     />
                 </span>
                 <p>
-                    پارسا فیروزی
+                    { blog.first_name + ' ' + blog.last_name }
                 </p>
                 <i>
                     ·
@@ -39,14 +37,16 @@ const BlogCard = () =>
                     ۱ سال پیش
                 </p>
             </span>
-            <h1>
-                زندگی نامه حافظ شیرازی
-            </h1>
+            <h4>
+                { blog.title_fa }
+            </h4>
             <p>
-                زندگی نامه و بیوگرافی کامل به همراه تمامی رویداد های زندگی شاعر و غزل سرای پرآوازه ایرانی زاده شهر شیراز با تاریخ دقیق، خواجه شمسُ‌الدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ معروف به حافظِ شیرازی
+                { blog.summary_fa }
             </p>
             <i>
-                ۴ دقیقه برای خواندن
+                { blog.to_read }
+                <span />
+                دقیقه برای خواندن
             </i>
         </Link>
     );

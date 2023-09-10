@@ -40,7 +40,7 @@ const Footer = () =>
                         </li>
                     </ul>
                     <span className={styles.footerMainCopyright}>
-                        Copyright © 2023 Hafez-Shirazi.
+                        Copyright © 2023 Hafez-Hub.
                     </span>
                 </ul>
             </footer>

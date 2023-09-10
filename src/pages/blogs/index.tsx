@@ -1,16 +1,62 @@
-import React from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import BlogCard from '@/components/blogs/card.component';
 import Main from '@/components/layouts/main/main.component';
 
-import Blog1 from '@/../public/static/images/blogs/blog-1.jpg';
-
 import styles from '@/styles/pages/blogs.module.scss';
 
-const Blogs = () =>
+import { getBlogs } from '@/lib/api';
+
+const Blogs = ({ blog }: any) =>
 {
+    const { query } = useRouter();
+
+    const [page, setPage] = useState<number>(1);
+    const [hasMore, setHasMore] = useState<boolean>(true);
+    const [blogs, setBlogs] = useState<any[] | 'loading'>('loading');
+
+    useEffect(() =>
+    {
+        (
+            async() =>
+            {
+                try
+                {
+                    const blogReq = await getBlogs(page, query?.limit?.toString() || 10, 'created_at', true);
+
+                    if (blogs !== 'loading')
+                    {
+                        const newBlogs = [...blogs];
+
+                        for (const newBlog of blogReq.blogs)
+                        {
+                            const xBlog = newBlogs.find(xBlog => xBlog.id === newBlog.id);
+
+                            if (!xBlog)
+                                newBlogs.push(newBlog);
+                        }
+
+                        setBlogs(newBlogs);
+                    }
+                    else
+                        setBlogs(blogReq.blogs);
+
+                    setHasMore(blogReq.hasMore);
+                }
+                catch (error)
+                {
+                    setBlogs([]);
+                }
+            }
+        )();
+    }, [page]);
+
     return (
         <>
             <Head>
@@ -21,11 +67,11 @@ const Blogs = () =>
             </Head>
 
             <Main>
-                <header className={styles.blogsHeader}>
+                <Link href={ '/blogs/' + blog.data[0].slug } className={styles.blogsHeader}>
                     <span className={styles.blogsHeaderImage}>
                         <Image
-                            src={ Blog1 }
-                            alt={ 'Blog' }
+                            src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.data[0].thumbnail }` }
+                            alt={ blog.data[0].slug }
                             fill
                             style={{ objectFit: 'cover' }}
                             sizes={'100'}
@@ -35,15 +81,15 @@ const Blogs = () =>
                         <span className={styles.blogsHeaderAuthor}>
                             <span>
                                 <Image
-                                    src={ Blog1 }
-                                    alt={ 'Profile' }
+                                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.data[0].avatar }` }
+                                    alt={ blog.data[0].first_name + ' ' + blog.data[0].last_name }
                                     fill
                                     style={{ objectFit: 'cover' }}
                                     sizes={'100'}
                                 />
                             </span>
                             <p>
-                                پارسا فیروزی
+                                { blog.data[0].first_name + ' ' + blog.data[0].last_name }
                             </p>
                             <i>
                                 ·
@@ -53,35 +99,60 @@ const Blogs = () =>
                             </p>
                         </span>
                         <h1>
-                            زندگی نامه حافظ شیرازی
+                            { blog.data[0].title_fa }
                         </h1>
                         <p>
-                            زندگی نامه و بیوگرافی کامل به همراه تمامی رویداد های زندگی شاعر و غزل سرای پرآوازه ایرانی زاده شهر شیراز با تاریخ دقیق، خواجه شمسُ‌الدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ معروف به حافظِ شیرازی
+                            { blog.data[0].summary_fa }
                         </p>
                         <i>
-                            ۴ دقیقه برای خواندن
+                            { blog.data[0].to_read }
+                            <span />
+                            دقیقه برای خواندن
                         </i>
                     </div>
-                </header>
+                </Link>
 
                 <h2 className={styles.blogsListHeader}>
                     خواندنی‌های حافط‌هاب
                 </h2>
-                <section className={styles.blogsList}>
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                </section>
+                {
+                    blogs === 'loading'
+                        ?
+                        <></>
+                        :
+                        <InfiniteScroll
+                            className={styles.blogsList}
+                            dataLength={ blogs.length }
+                            next={() => setPage(page + 1)}
+                            hasMore={ hasMore }
+                            loader={<></>}
+                        >
+                            {
+                                blogs.map((blog: any) =>
+                                    (
+                                        <BlogCard key={ blog.id + '.BLOGS.PAGE.LIST' } blog={blog}/>
+                                    ))
+                            }
+                        </InfiniteScroll>
+                }
             </Main>
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async() =>
+{
+    let blog = { };
+
+    const blogReq = await getBlogs(1, 1, 'likes');
+
+    if (blogReq)
+        blog = { data: blogReq.blogs };
+
+    return {
+        props: { blog },
+        revalidate: 10
+    };
 };
 
 export default Blogs;
