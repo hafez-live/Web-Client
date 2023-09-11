@@ -62,7 +62,7 @@ const Poem = ({ poem, poems }: PoemTypes) =>
     return (
         <>
             <Head>
-                <title>حافظ‌هاب - غزل شماره { poem.data.id } از دیوان غزلیات حافظ شیرازی</title>
+                <title>حافظ‌لایو - غزل شماره { poem.data.id } از دیوان غزلیات حافظ شیرازی</title>
             </Head>
 
             <Main>

@@ -20,7 +20,7 @@ const Navbar = () =>
             <Link href='/' className={styles.navLogo}>
                 <Image
                     src={ pathname !== '/' ? HafezTypography : HafezTypography2 }
-                    alt='hafez-hub logo'
+                    alt='hafez.live logo'
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes={'100'}
@@ -53,7 +53,7 @@ const Navbar = () =>
 
             <ul className={styles.navItemSocialList}>
                 <li className={styles.navItemSocial}>
-                    <Link className={styles.navItemSocialLink} href='https://github.com/hafez-hub'>
+                    <Link className={styles.navItemSocialLink} href='https://github.com/hafez-live'>
                         <BsGithub />
                     </Link>
                 </li>

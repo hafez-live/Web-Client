@@ -74,7 +74,7 @@ const Blog = () =>
                             :
                             <>
                                 <Head>
-                                    <title>حافظ‌هاب - { blog.meta_title_fa }</title>
+                                    <title>حافظ‌لایو - { blog.meta_title_fa }</title>
                                 </Head>
 
                                 <section className={styles.blog}>
@@ -133,7 +133,7 @@ const Blog = () =>
                                 </section>
 
                                 <h2 className={styles.blogsListHeader}>
-                                    خواندنی‌های مرتبط حافط‌هاب
+                                    خواندنی‌های مرتبط حافظ‌لایو
                                 </h2>
                                 <section className={styles.blogsList2}>
                                     {

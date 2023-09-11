@@ -70,7 +70,7 @@ const Blogs = ({ blog }: BlogsTypes) =>
     return (
         <>
             <Head>
-                <title>حافظ‌هاب - خواندنی‌های جالب درباره حافظ شیرازی</title>
+                <title>حافظ‌لایو - خواندنی‌های جالب درباره حافظ شیرازی</title>
             </Head>
 
             <Main>
@@ -120,7 +120,7 @@ const Blogs = ({ blog }: BlogsTypes) =>
                 </Link>
 
                 <h2 className={styles.blogsListHeader}>
-                    خواندنی‌های حافط‌هاب
+                    خواندنی‌های حافظ‌لایو
                 </h2>
                 {
                     blogs === 'loading'

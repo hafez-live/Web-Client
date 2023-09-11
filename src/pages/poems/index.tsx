@@ -72,7 +72,7 @@ const Poems = ({ poem }: PoemsTypes) =>
     return (
         <>
             <Head>
-                <title>حافظ‌هاب - تمامی عزلیات و اشعار حافظ شیرازی</title>
+                <title>حافظ‌لایو - تمامی عزلیات و اشعار حافظ شیرازی</title>
             </Head>
 
             <Main>

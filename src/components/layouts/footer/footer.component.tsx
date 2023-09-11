@@ -35,7 +35,7 @@ const Footer = () =>
                         </li>
                     </ul>
                     <span className={styles.footerMainCopyright}>
-                        Copyright © 2023 Hafez-Hub.
+                        Copyright © 2023 Hafez.Live
                     </span>
                 </ul>
             </footer>
