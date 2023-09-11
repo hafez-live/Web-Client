@@ -1,9 +1,13 @@
 import React from 'react';
+
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 import { BsGithub, BsDiscord } from 'react-icons/bs';
 
-import HafezTypography from '../../../../public/static/icons/hafez-typography.png';
+import HafezTypography from '@/../public/static/icons/hafez-typography.png';
+import HafezTypography2 from '@/../public/static/icons/hafez-typography-2.png';
 
 import styles from './navbar.module.scss';
 
@@ -13,9 +17,15 @@ const Navbar = () =>
 
     return (
         <nav className={styles.nav} data-secondery={ pathname !== '/' }>
-            <div className={styles.navLogo}>
-                <img src={HafezTypography.src} alt='hafez-hub logo' />
-            </div>
+            <Link href='/' className={styles.navLogo}>
+                <Image
+                    src={ pathname !== '/' ? HafezTypography : HafezTypography2 }
+                    alt='hafez-hub logo'
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes={'100'}
+                />
+            </Link>
 
             <ul className={styles.navItemLinks}>
                 <li className={styles.navItemLinksList}>

@@ -1,10 +1,15 @@
 import axios from 'axios';
 import Link from 'next/link';
-import Head from 'next/head';
 import Image from 'next/image';
+
+import Head from 'next/head';
+
 import React, { useEffect } from 'react';
+
 import type { GetStaticProps } from 'next';
-import { FaArrowLeft, FaSearch, FaBook } from 'react-icons/fa';
+
+import { FaFileWord } from 'react-icons/fa6';
+import { FaArrowLeft, FaSearch, FaBook, FaCommentDots } from 'react-icons/fa';
 
 import PoemList from '../components/poem/list.component';
 import Main from '../components/layouts/main/main.component';
@@ -13,6 +18,7 @@ import { getPoems, getBlogs } from '@/lib/api';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+
 import styles from '../styles/pages/home.module.scss';
 
 const Home = ({ poems, blogs }: any) =>
@@ -90,7 +96,7 @@ const Home = ({ poems, blogs }: any) =>
                             <FaBook />
                         </i>
                         <h3 className={styles.homeHeaderBoxHeader}>
-                            بیش از ۱۰۰۰ اشعار و غزلیات برتر حافظ
+                            ۴۹۵ اشعار و غزلیات برتر حافظ
                         </h3>
                         <p className={styles.homeHeaderBoxParagraph}>
                             شما با استفاده از سرویس‌ما اختصاصی و پرسرعت‌ حافظ شیرازی می‌توانید به تمامی اشعار ثبت شده حافظ دسترسی داشته باشید و آزادانه از آن استفاده کنید
@@ -98,7 +104,7 @@ const Home = ({ poems, blogs }: any) =>
                     </div>
                     <div className={styles.homeHeaderBox}>
                         <i className={styles.homeHeaderBoxIcon}>
-                            <FaBook />
+                            <FaFileWord />
                         </i>
                         <h3 className={styles.homeHeaderBoxHeader}>
                             معانی تمامی کلمات و کنایه های اشعار حافظ
@@ -109,7 +115,7 @@ const Home = ({ poems, blogs }: any) =>
                     </div>
                     <div className={styles.homeHeaderBox}>
                         <i className={styles.homeHeaderBoxIcon}>
-                            <FaBook />
+                            <FaCommentDots />
                         </i>
                         <h3 className={styles.homeHeaderBoxHeader}>
                             گرفتن فال و شرح معنای درونی غزلیات حافظ
@@ -123,7 +129,7 @@ const Home = ({ poems, blogs }: any) =>
                 <section className={styles.homeFeatures}>
                     <div className={styles.homeFeaturesBox}>
                         <span className={styles.homeFeaturesHeader}>
-                            ۱۰۰۰+
+                            ۴۹۵+
                         </span>
                         <span className={styles.homeFeaturesParagraph}>
                             غزل ثبت شده
@@ -131,7 +137,7 @@ const Home = ({ poems, blogs }: any) =>
                     </div>
                     <div className={styles.homeFeaturesBox}>
                         <span className={styles.homeFeaturesHeader}>
-                            ۱۰۰۰+
+                            ۴۸۰+
                         </span>
                         <span className={styles.homeFeaturesParagraph}>
                             تعبیر و فال
@@ -139,7 +145,7 @@ const Home = ({ poems, blogs }: any) =>
                     </div>
                     <div className={styles.homeFeaturesBox}>
                         <span className={styles.homeFeaturesHeader}>
-                            ۱۰۰۰+
+                            { 480 * 15 }+
                         </span>
                         <span className={styles.homeFeaturesParagraph}>
                             دستورزبانی کلمات
@@ -147,7 +153,7 @@ const Home = ({ poems, blogs }: any) =>
                     </div>
                     <div className={styles.homeFeaturesBox}>
                         <span className={styles.homeFeaturesHeader}>
-                            ۱۰۰۰+
+                            { 480 * 20 }+
                         </span>
                         <span className={styles.homeFeaturesParagraph}>
                             معنی واژگان
@@ -183,7 +189,7 @@ const Home = ({ poems, blogs }: any) =>
                                                 src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
                                                 alt={ blog.title_fa }
                                                 fill
-                                                sizes={'100'}
+                                                objectFit='cover'
                                             />
                                         </span>
                                         <h4>

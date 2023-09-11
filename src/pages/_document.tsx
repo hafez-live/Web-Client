@@ -12,7 +12,7 @@ class MyDocument extends Document
         return (
             <Html lang='fa' dir='rtl'>
                 <Head>
-                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="icon" href="/favicon.png" />
                 </Head>
                 <body>
                     <Main />
