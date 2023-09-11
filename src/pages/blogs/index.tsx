@@ -13,7 +13,17 @@ import styles from '@/styles/pages/blogs.module.scss';
 
 import { getBlogs } from '@/lib/api';
 
-const Blogs = ({ blog }: any) =>
+import { IBlog } from '@/interfaces/blog.types';
+
+interface BlogsTypes
+{
+    blog:
+        {
+            data: IBlog[]
+        }
+}
+
+const Blogs = ({ blog }: BlogsTypes) =>
 {
     const { query } = useRouter();
 
@@ -128,7 +138,7 @@ const Blogs = ({ blog }: any) =>
                             loader={<></>}
                         >
                             {
-                                blogs.map((blog: any) =>
+                                blogs.map((blog: IBlog) =>
                                     (
                                         <BlogCard key={ blog.id + '.BLOGS.PAGE.LIST' } blog={blog}/>
                                     ))

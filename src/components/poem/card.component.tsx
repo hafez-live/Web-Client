@@ -5,7 +5,14 @@ import styles from './poem.module.scss';
 
 import { Newline } from '@/utils/helper';
 
-const PoemCard = ({ poem }: any) =>
+import { IPoem } from '@/interfaces/poem.types';
+
+interface PoemTypes
+{
+    poem: IPoem
+}
+
+const PoemCard = ({ poem }: PoemTypes) =>
 {
     return (
         <Link href={`/poems/${ poem.id }`} className={styles.poemCard}>

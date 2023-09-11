@@ -4,7 +4,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import PoemCard from './card.component';
 
-const PoemList = ({ poems }: any) =>
+import { IPoem } from '@/interfaces/poem.types';
+
+interface PoemListTypes
+{
+    poems: IPoem[]
+}
+
+const PoemList = ({ poems }: PoemListTypes) =>
 {
     return (
         <Swiper
@@ -20,7 +27,7 @@ const PoemList = ({ poems }: any) =>
             }}
         >
             {
-                poems.map((poem: any) =>
+                poems.map((poem: IPoem) =>
                     (
                         <SwiperSlide key={poem.id + '.POEM.HOME.LIST'}>
                             <PoemCard poem={poem}/>

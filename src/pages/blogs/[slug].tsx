@@ -13,12 +13,14 @@ import styles from '@/styles/pages/blogs.module.scss';
 
 import { getBlogs, getBlog } from '@/lib/api';
 
+import { IBlog } from '@/interfaces/blog.types';
+
 const Blog = () =>
 {
     const { query } = useRouter();
 
-    const [blog, setBlog] = useState<any | 'loading'>('loading');
-    const [hottestBlogs, setHottestBlogs] = useState<any[] | 'loading'>('loading');
+    const [blog, setBlog] = useState<IBlog | 'loading' | 'error'>('loading');
+    const [hottestBlogs, setHottestBlogs] = useState<IBlog[] | 'loading'>('loading');
 
     useEffect(() =>
     {
@@ -73,37 +75,39 @@ const Blog = () =>
                         ?
                         <></>
                         :
-                        blog.slug
+                        blog === 'error'
                             ?
+                            <Error title='404' message='بلاگ مورد نظر پیدا نشد'/>
+                            :
                             <>
                                 <section className={styles.blog}>
-                                <span className={styles.blogImage}>
-                                    <Image
-                                        src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
-                                        alt={ blog.slug }
-                                        fill
-                                        style={{ objectFit: 'cover' }}
-                                        sizes={'100'}
-                                    />
-                                </span>
+                                    <span className={styles.blogImage}>
+                                        <Image
+                                            src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
+                                            alt={ blog.slug }
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                            sizes={'100'}
+                                        />
+                                    </span>
                                     <h1>
                                         { blog.title_fa }
                                     </h1>
                                     <div>
-                                    <span className={styles.blogAuthor}>
-                                        <span>
-                                            <Image
-                                                src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.avatar }` }
-                                                alt={ blog.first_name + ' ' + blog.last_name }
-                                                fill
-                                                style={{ objectFit: 'cover' }}
-                                                sizes={'100'}
-                                            />
+                                        <span className={styles.blogAuthor}>
+                                            <span>
+                                                <Image
+                                                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.avatar }` }
+                                                    alt={ blog.first_name + ' ' + blog.last_name }
+                                                    fill
+                                                    style={{ objectFit: 'cover' }}
+                                                    sizes={'100'}
+                                                />
+                                            </span>
+                                            <p>
+                                                { blog.first_name + ' ' + blog.last_name }
+                                            </p>
                                         </span>
-                                        <p>
-                                            { blog.first_name + ' ' + blog.last_name }
-                                        </p>
-                                    </span>
                                     </div>
                                     <div>
                                         <p>
@@ -113,15 +117,15 @@ const Blog = () =>
                                         <p>
                                             <BsClockFill />
                                             <span>
-                                            { blog.to_read }
-                                        </span>
+                                                { blog.to_read }
+                                            </span>
                                             دقیقه برای خواندن
                                         </p>
                                         <p>
                                             <BsEyeFill />
                                             <span>
-                                            { blog.readz }
-                                        </span>
+                                                { blog.readz }
+                                            </span>
                                             بار بازید
                                         </p>
                                     </div>
@@ -140,15 +144,13 @@ const Blog = () =>
                                             ?
                                             <></>
                                             :
-                                            hottestBlogs.map((blog: any) =>
+                                            hottestBlogs.map((blog: IBlog) =>
                                                 (
                                                     <BlogCard key={ blog.id + '.BLOGS.PAGE.LIST' } blog={blog}/>
                                                 ))
                                     }
                                 </section>
                             </>
-                            :
-                            <Error title='404' message='بلاگ مورد نظر پیدا نشد'/>
                 }
             </Main>
         </>

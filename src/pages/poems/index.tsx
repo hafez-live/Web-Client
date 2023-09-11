@@ -14,9 +14,18 @@ import styles from '@/styles/pages/poems.module.scss';
 import { getPoem } from '@/lib/api';
 
 import { Newline } from '@/utils/helper';
-import * as process from 'process';
 
-const Poems = ({ poem }: any) =>
+import { IPoem } from '@/interfaces/poem.types';
+
+interface PoemsTypes
+{
+    poem:
+        {
+            data: IPoem
+        }
+}
+
+const Poems = ({ poem }: PoemsTypes) =>
 {
     const { query } = useRouter();
 
@@ -102,7 +111,7 @@ const Poems = ({ poem }: any) =>
                                 loader={<></>}
                             >
                                 {
-                                    poems.map((poem: any) =>
+                                    poems.map((poem: IPoem) =>
                                         (
                                             <PoemCard key={ poem.id + '.POEMS.PAGE.LIST' } poem={poem}/>
                                         ))

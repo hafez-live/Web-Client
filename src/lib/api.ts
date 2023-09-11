@@ -3,7 +3,7 @@ import process from 'process';
 
 const API_URL = process.env.API_URL;
 
-export async function getPoem(slug: string | number)
+export async function getPoem(slug: string | number | unknown)
 {
     try
     {

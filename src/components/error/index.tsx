@@ -3,7 +3,13 @@ import Link from 'next/link';
 
 import styles from './error.module.scss';
 
-const Error = ({ title, message }: any) =>
+interface ErrorTypes
+{
+    title?: string | number,
+    message?: string | number
+}
+
+const Error = ({ title, message }: ErrorTypes) =>
 {
     return (
         <section className={styles.error}>

@@ -4,7 +4,14 @@ import Image from 'next/image';
 
 import styles from '../../styles/pages/blogs.module.scss';
 
-const BlogCard = ({ blog }: any) =>
+import { IBlog } from '@/interfaces/blog.types';
+
+interface BlogTypes
+{
+    blog: IBlog
+}
+
+const BlogCard = ({ blog }: BlogTypes) =>
 {
     return (
         <Link href={ '/blogs/' + blog.slug } className={styles.blogsCard}>

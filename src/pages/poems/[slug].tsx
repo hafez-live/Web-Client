@@ -16,7 +16,21 @@ import { getPoem, getPoems } from '@/lib/api';
 
 import { Newline } from '@/utils/helper';
 
-const Poem = ({ poem, poems }: any) =>
+import { IPoem } from '@/interfaces/poem.types';
+
+interface PoemTypes
+{
+    poem:
+        {
+            data: IPoem
+        },
+    poems:
+        {
+            data: IPoem[]
+        }
+}
+
+const Poem = ({ poem, poems }: PoemTypes) =>
 {
     const { query, push } = useRouter();
 
@@ -129,7 +143,7 @@ const Poem = ({ poem, poems }: any) =>
                                 </h2>
                                 <section className={styles.poemsList}>
                                     {
-                                        poems.data.map((poem: any) =>
+                                        poems.data.map((poem: IPoem) =>
                                             (
                                                 <PoemCard key={ poem.id + '.POEM.SUGGEST.LIST' } poem={poem}/>
                                             ))
@@ -144,12 +158,12 @@ const Poem = ({ poem, poems }: any) =>
     );
 };
 
-export const getStaticProps: GetStaticProps = async({ params }: any) =>
+export const getStaticProps: GetStaticProps = async({ params }) =>
 {
     let poem = { };
     let poems = { data: [] };
 
-    const poemReq = await getPoem(params.slug);
+    const poemReq = await getPoem(params?.slug);
     const poemsReq = await getPoems(1, 3);
 
     if (poemReq)

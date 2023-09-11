@@ -2,7 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import type { GetStaticProps } from 'next';
 
@@ -20,10 +20,25 @@ import 'swiper/css/navigation';
 import styles from '../styles/pages/home.module.scss';
 import process from 'process';
 
-const Home = ({ poems, blogs }: any) =>
+import { IBlog } from '@/interfaces/blog.types';
+import { IPoem } from '@/interfaces/poem.types';
+
+interface HomeTypes
+{
+    poems:
+        {
+            data: IPoem[]
+        },
+    blogs:
+        {
+            data: IBlog[]
+        }
+}
+
+const Home = ({ poems, blogs }: HomeTypes) =>
 {
     const [search, setSearch] = useState<string>('');
-    const [searchPoems, setSearchPoems] = useState<any[] | 'loading'>('loading');
+    const [searchPoems, setSearchPoems] = useState<IPoem[] | 'loading'>('loading');
 
     useEffect(() =>
     {
@@ -55,8 +70,10 @@ const Home = ({ poems, blogs }: any) =>
 
             <header className={styles.homeHeader}>
                 <div className={styles.homeHeaderContent}>
-                    <h1>اشعار و غزلیات حافظ شیرازی</h1>
-                    <h2>حافظ‌هاب وبسایت اختصاصی حافظ شیرازی معروف ترین غزل سرای ایران</h2>
+                    <h1>غزلیات و اشعار حافظ شیرازی</h1>
+                    <h2>
+                        حافظ‌هاب تمامی عزلیات و اشعار حافظ شیرازی
+                    </h2>
                     <section>
                         <form>
                             <input
@@ -80,7 +97,7 @@ const Home = ({ poems, blogs }: any) =>
                                                 Loading...
                                             </>
                                             :
-                                            searchPoems.map((poem: any) =>
+                                            searchPoems.map((poem: IPoem) =>
                                                 (
                                                     poem?.content
                                                         ?
@@ -236,7 +253,7 @@ const Home = ({ poems, blogs }: any) =>
                     </h6>
                     <div>
                         {
-                            blogs.data.map((blog: any) =>
+                            blogs.data.map((blog: IBlog) =>
                                 (
                                     <Link href={`/blogs/${ blog.slug }`} key={blog.slug + '.BLOG.HOME.LIST'}>
                                         <span>
