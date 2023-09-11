@@ -29,12 +29,7 @@ const Footer = () =>
                             </Link>
                         </li>
                         <li className={styles.footerMenuItem}>
-                            <Link href='/contact-us'>
-                                راه‌های ارتباطی
-                            </Link>
-                        </li>
-                        <li className={styles.footerMenuItem}>
-                            <Link href='/api'>
+                            <Link href='/documents'>
                                 وب‌سرویس
                             </Link>
                         </li>

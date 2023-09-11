@@ -45,12 +45,7 @@ const Navbar = () =>
                     </Link>
                 </li>
                 <li className={styles.navItemLinksList}>
-                    <Link className={styles.navItemLinksLink} href='/contact-us'>
-                        راه های ارتباطی
-                    </Link>
-                </li>
-                <li className={styles.navItemLinksList}>
-                    <Link className={styles.navItemLinksLink} href='/api'>
+                    <Link className={styles.navItemLinksLink} href='/documents'>
                         وب سرویس
                     </Link>
                 </li>
