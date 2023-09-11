@@ -2,7 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import type { GetStaticProps } from 'next';
 
@@ -18,9 +18,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import styles from '../styles/pages/home.module.scss';
+import process from 'process';
 
 const Home = ({ poems, blogs }: any) =>
 {
+    const [search, setSearch] = useState<string>('');
+    const [searchPoems, setSearchPoems] = useState<any[] | 'loading'>('loading');
+
     useEffect(() =>
     {
         (
@@ -28,21 +32,22 @@ const Home = ({ poems, blogs }: any) =>
             {
                 try
                 {
-                    console.log(await axios.get('http://localhost:4000/poem/find-all?locale=fa&page=1&limit=10'));
+                    const getPoems = await axios.get(process.env.NEXT_PUBLIC_SERVER_IP_OR_URL + `/poem/search-in-content?locale=fa&page=1&limit=10&search=${ search }`);
+
+                    setSearchPoems(getPoems.data.data.poems);
                 }
                 catch (e)
                 {
-                    console.log(e);
+                    setSearchPoems([]);
                 }
             }
         )();
-    }, []);
-
+    }, [search]);
 
     return (
         <>
             <Head>
-                <title>وبسایت اختصاصی حافظ شیرازی معروف ترین غزل سرای ایران</title>
+                <title>حافظ‌هاب - تمامی عزلیات و اشعار حافظ شیرازی</title>
                 <meta charSet='UTF-8' />
                 <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport' />
                 <meta content="ie=edge" httpEquiv='X-UA-Compatible' />
@@ -52,16 +57,68 @@ const Home = ({ poems, blogs }: any) =>
                 <div className={styles.homeHeaderContent}>
                     <h1>اشعار و غزلیات حافظ شیرازی</h1>
                     <h2>حافظ‌هاب وبسایت اختصاصی حافظ شیرازی معروف ترین غزل سرای ایران</h2>
-                    <form>
-                        <input
-                            type='text'
-                            spellCheck={false}
-                            placeholder='جستجو در بین تمامی اشعار و غزلیات حافظ'
-                        />
-                        <button>
-                            <FaSearch />
-                        </button>
-                    </form>
+                    <section>
+                        <form>
+                            <input
+                                type='text'
+                                spellCheck={false}
+                                placeholder='جستجو در بین تمامی اشعار و غزلیات حافظ'
+                                onChange={(event) => setSearch(event.target.value)}
+                            />
+                            <button>
+                                <FaSearch />
+                            </button>
+                        </form>
+                        {
+                            search.length > 0
+                                ?
+                                <ul>
+                                    {
+                                        searchPoems === 'loading'
+                                            ?
+                                            <>
+                                                Loading...
+                                            </>
+                                            :
+                                            searchPoems.map((poem: any) =>
+                                                (
+                                                    poem?.content
+                                                        ?
+                                                        <li>
+                                                            <Link href={ '/poems/' + poem.id }>
+                                                                <span>
+                                                                    عزل شماره
+                                                                    <span />
+                                                                    { poem.id }
+                                                                </span>
+                                                                <p>
+                                                                    {
+                                                                        '...' +
+                                                                        poem.content.split(search)[0].slice(-15)
+                                                                    }
+                                                                    <strong>
+                                                                        { search }
+                                                                    </strong>
+                                                                    {
+                                                                        poem.content.split(search).length >= 2
+                                                                            ?
+                                                                            poem.content.split(search)[1].slice(0, 15) +
+                                                                            '...'
+                                                                            :
+                                                                            null
+                                                                    }
+                                                                </p>
+                                                            </Link>
+                                                        </li>
+                                                        :
+                                                        null
+                                                ))
+                                    }
+                                </ul>
+                                :
+                                null
+                        }
+                    </section>
                     <div>
                         <Link href='/poems/random'>
                             یک غزل تصادفی

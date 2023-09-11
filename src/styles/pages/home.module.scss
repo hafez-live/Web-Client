@@ -43,59 +43,132 @@
                 font-family: 'YekanBakhRegular', sans-serif;
             }
 
-            & form
+            & > section
             {
                 display: flex;
                 align-items: center;
-                gap: 1rem;
+                flex-direction: column;
+                gap: 2rem;
+
+                position: relative;
 
                 width: 100%;
                 max-width: 75rem;
-                margin-top: 5rem;
-                padding: .25rem;
-                border-radius: 1rem;
-                background: rgba( 255, 255, 255, 0.9 );
-                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-                backdrop-filter: blur( 20px );
-                -webkit-backdrop-filter: blur( 20px );
-                outline: .5rem solid rgba(211, 207, 231, 0.4);
+                padding-top: 5rem;
 
-                & input
-                {
-                    height: 7rem;
-                    width: 100%;
-                    padding: 1rem 2rem;
-                    font-size: 2rem;
-                    background: transparent;
-                    color: var(--color-font-secondary);
-                    outline: none;
-                    border: none;
-                    transition: all .2s;
-                }
-
-                & button
+                & > form
                 {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    gap: 1rem;
 
-                    height: 7rem;
-                    width: 7rem;
-                    min-height: 7rem;
-                    min-width: 7rem;
-                    background: transparent;
-                    outline: none;
-                    border: none;
-                    border-radius: .75rem;
-                    transition: all .2s;
-                    cursor: pointer;
+                    width: 100%;
+                    max-width: 75rem;
+                    padding: .25rem;
+                    border-radius: 1rem;
+                    background: rgba( 255, 255, 255, 0.9 );
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 20px );
+                    -webkit-backdrop-filter: blur( 20px );
+                    outline: .5rem solid rgba(211, 207, 231, 0.4);
 
-                    & svg
+                    & input
                     {
-                        width: 2.5rem;
-                        height: 2.5rem;
-                        margin: auto;
-                        fill: var(--color-secondary);
+                        height: 7rem;
+                        width: 100%;
+                        padding: 1rem 2rem;
+                        font-size: 2rem;
+                        background: transparent;
+                        color: var(--color-font-secondary);
+                        outline: none;
+                        border: none;
+                        transition: all .2s;
+                    }
+
+                    & button
+                    {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        height: 7rem;
+                        width: 7rem;
+                        min-height: 7rem;
+                        min-width: 7rem;
+                        background: transparent;
+                        outline: none;
+                        border: none;
+                        border-radius: .75rem;
+                        transition: all .2s;
+                        cursor: pointer;
+
+                        & svg
+                        {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            margin: auto;
+                            fill: var(--color-secondary);
+                        }
+                    }
+                }
+
+                & > ul
+                {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    position: absolute;
+                    z-index: 100;
+                    top: 14rem;
+
+                    width: 100%;
+                    max-width: 75rem;
+                    padding: 2rem 1rem;
+                    border-radius: 1rem;
+                    background: rgba(241, 239, 245, 0.9);
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 20px );
+
+                    & > li
+                    {
+                        width: 100%;
+
+                        & > a
+                        {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 2rem;
+
+                            font-size: 1.5rem;
+                            border-radius: 1rem;
+                            width: 100%;
+                            padding: 1rem 2rem;
+                            color: var(--color-primary);
+                            background: rgb(255, 255, 255);
+
+                            & > span
+                            {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: .35rem;
+
+                                color: var(--color-primary);
+                            }
+
+                            & > p
+                            {
+                                color: var(--color-secondary);
+
+                                & > strong
+                                {
+                                    color: var(--color-primary);
+                                }
+                            }
+                        }
                     }
                 }
             }
