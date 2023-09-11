@@ -1,9 +1,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import Image from 'next/image';
-
 import Head from 'next/head';
-
 import React, { useEffect } from 'react';
 
 import type { GetStaticProps } from 'next';

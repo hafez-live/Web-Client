@@ -2,9 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ReactHtmlParser from 'html-react-parser';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsCalendarFill, BsClockFill, BsEyeFill } from 'react-icons/bs';
 
+import Error from '@/components/error';
 import BlogCard from '@/components/blogs/card.component';
 import Main from '@/components/layouts/main/main.component';
 
@@ -51,7 +52,7 @@ const Blog = () =>
                 }
                 catch (error)
                 {
-                    setBlog('loading');
+                    setBlog('error');
                 }
             }
         )();
@@ -72,77 +73,83 @@ const Blog = () =>
                         ?
                         <></>
                         :
-                        <section className={styles.blog}>
-                            <span className={styles.blogImage}>
-                                <Image
-                                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
-                                    alt={ blog.slug }
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    sizes={'100'}
-                                />
-                            </span>
-                            <h1>
-                                { blog.title_fa }
-                            </h1>
-                            <div>
-                                <span className={styles.blogAuthor}>
-                                    <span>
-                                        <Image
-                                            src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.avatar }` }
-                                            alt={ blog.first_name + ' ' + blog.last_name }
-                                            fill
-                                            style={{ objectFit: 'cover' }}
-                                            sizes={'100'}
-                                        />
-                                    </span>
-                                    <p>
-                                        { blog.first_name + ' ' + blog.last_name }
-                                    </p>
-                                </span>
-                            </div>
-                            <div>
-                                <p>
-                                    <BsCalendarFill />
-                                    نوشته شده در ۴ سال پیش
-                                </p>
-                                <p>
-                                    <BsClockFill />
-                                    <span>
-                                        { blog.to_read }
-                                    </span>
-                                    دقیقه برای خواندن
-                                </p>
-                                <p>
-                                    <BsEyeFill />
-                                    <span>
-                                        { blog.readz }
-                                    </span>
-                                    بار بازید
-                                </p>
-                            </div>
-
-                            <article>
-                                { ReactHtmlParser(blog.content_fa) }
-                            </article>
-                        </section>
-                }
-
-                <h2 className={styles.blogsListHeader}>
-                    خواندنی‌های مرتبط حافط‌هاب
-                </h2>
-                <section className={styles.blogsList2}>
-                    {
-                        hottestBlogs === 'loading'
+                        blog.slug
                             ?
-                            <></>
+                            <>
+                                <section className={styles.blog}>
+                                <span className={styles.blogImage}>
+                                    <Image
+                                        src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.thumbnail }` }
+                                        alt={ blog.slug }
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        sizes={'100'}
+                                    />
+                                </span>
+                                    <h1>
+                                        { blog.title_fa }
+                                    </h1>
+                                    <div>
+                                    <span className={styles.blogAuthor}>
+                                        <span>
+                                            <Image
+                                                src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.avatar }` }
+                                                alt={ blog.first_name + ' ' + blog.last_name }
+                                                fill
+                                                style={{ objectFit: 'cover' }}
+                                                sizes={'100'}
+                                            />
+                                        </span>
+                                        <p>
+                                            { blog.first_name + ' ' + blog.last_name }
+                                        </p>
+                                    </span>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            <BsCalendarFill />
+                                            نوشته شده در ۴ سال پیش
+                                        </p>
+                                        <p>
+                                            <BsClockFill />
+                                            <span>
+                                            { blog.to_read }
+                                        </span>
+                                            دقیقه برای خواندن
+                                        </p>
+                                        <p>
+                                            <BsEyeFill />
+                                            <span>
+                                            { blog.readz }
+                                        </span>
+                                            بار بازید
+                                        </p>
+                                    </div>
+
+                                    <article>
+                                        { ReactHtmlParser(blog.content_fa) }
+                                    </article>
+                                </section>
+
+                                <h2 className={styles.blogsListHeader}>
+                                    خواندنی‌های مرتبط حافط‌هاب
+                                </h2>
+                                <section className={styles.blogsList2}>
+                                    {
+                                        hottestBlogs === 'loading'
+                                            ?
+                                            <></>
+                                            :
+                                            hottestBlogs.map((blog: any) =>
+                                                (
+                                                    <BlogCard key={ blog.id + '.BLOGS.PAGE.LIST' } blog={blog}/>
+                                                ))
+                                    }
+                                </section>
+                            </>
                             :
-                            hottestBlogs.map((blog: any) =>
-                                (
-                                    <BlogCard key={ blog.id + '.BLOGS.PAGE.LIST' } blog={blog}/>
-                                ))
-                    }
-                </section>
+                            <Error title='404' message='بلاگ مورد نظر پیدا نشد'/>
+                }
             </Main>
         </>
     );
