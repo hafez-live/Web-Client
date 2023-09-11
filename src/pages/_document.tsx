@@ -1,4 +1,5 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
 
 class MyDocument extends Document
 {
@@ -12,6 +13,10 @@ class MyDocument extends Document
         return (
             <Html lang='fa' dir='rtl'>
                 <Head>
+                    <meta charSet='UTF-8' />
+                    <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport' />
+                    <meta content="ie=edge" httpEquiv='X-UA-Compatible' />
+
                     <link rel="icon" href="/favicon.png" />
                 </Head>
                 <body>

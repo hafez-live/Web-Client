@@ -62,13 +62,6 @@ const Blog = () =>
 
     return (
         <>
-            <Head>
-                <title>حافظ‌هاب - تمامی عزلیات و اشعار حافظ شیرازی</title>
-                <meta charSet='UTF-8' />
-                <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport' />
-                <meta content="ie=edge" httpEquiv='X-UA-Compatible' />
-            </Head>
-
             <Main blog>
                 {
                     blog === 'loading'
@@ -80,6 +73,10 @@ const Blog = () =>
                             <Error title='404' message='بلاگ مورد نظر پیدا نشد'/>
                             :
                             <>
+                                <Head>
+                                    <title>حافظ‌هاب - { blog.meta_title_fa }</title>
+                                </Head>
+
                                 <section className={styles.blog}>
                                     <span className={styles.blogImage}>
                                         <Image

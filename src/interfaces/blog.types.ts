@@ -7,6 +7,7 @@ export interface IBlog
     summary_fa: string,
     content_fa: string,
     to_read: number,
+    meta_title_fa: string,
     readz: number,
     avatar: string,
     first_name: string,

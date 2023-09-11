@@ -63,16 +63,15 @@ const Home = ({ poems, blogs }: HomeTypes) =>
         <>
             <Head>
                 <title>حافظ‌هاب - تمامی عزلیات و اشعار حافظ شیرازی</title>
-                <meta charSet='UTF-8' />
-                <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport' />
-                <meta content="ie=edge" httpEquiv='X-UA-Compatible' />
             </Head>
 
             <header className={styles.homeHeader}>
                 <div className={styles.homeHeaderContent}>
-                    <h1>غزلیات و اشعار حافظ شیرازی</h1>
-                    <h2>
+                    <h1>
                         حافظ‌هاب تمامی عزلیات و اشعار حافظ شیرازی
+                    </h1>
+                    <h2>
+                        دسترسی به تمامی غزلیات حافظ به همراه معنی کامل
                     </h2>
                     <section>
                         <form>
