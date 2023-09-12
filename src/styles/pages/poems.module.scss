@@ -149,15 +149,28 @@
         height: fit-content;
         padding-top: 20rem;
 
+        @media only screen and (max-width: 650px)
+        {
+            gap: 2rem;
+
+            padding-top: 14rem;
+        }
+
         & > h1
         {
             font-size: 5rem;
             color: var(--color-font-secondary);
+
+            @media only screen and (max-width: 750px)
+            {
+                font-size: 2.75rem;
+            }
         }
 
         & > article
         {
             display: grid;
+            column-gap: 2rem;
             grid-template-rows: repeat(auto-fit, 1fr);
             grid-template-columns: repeat(2, 1fr);
 
@@ -183,6 +196,11 @@
                 &:nth-child(30)
                 {
                     margin-top: 1.5rem;
+
+                    @media only screen and (max-width: 750px)
+                    {
+                        margin-top: 0;
+                    }
                 }
 
                 & > a
@@ -193,6 +211,34 @@
                     &:hover
                     {
                         color: var(--color-font-primary);
+                    }
+                }
+            }
+
+            @media only screen and (max-width: 750px)
+            {
+                grid-template-columns: repeat(1, 1fr);
+
+                & > p
+                {
+                    font-size: 2.25rem;
+
+                    &:nth-child(3),
+                    &:nth-child(5),
+                    &:nth-child(7),
+                    &:nth-child(9),
+                    &:nth-child(11),
+                    &:nth-child(13),
+                    &:nth-child(15),
+                    &:nth-child(17),
+                    &:nth-child(19),
+                    &:nth-child(21),
+                    &:nth-child(23),
+                    &:nth-child(25),
+                    &:nth-child(27),
+                    &:nth-child(29)
+                    {
+                        margin-top: 1rem;
                     }
                 }
             }
@@ -219,6 +265,11 @@
                 font-weight: normal;
                 font-size: 2.75rem;
                 color: var(--color-font-secondary);
+
+                @media only screen and (max-width: 650px)
+                {
+                    font-size: 2rem;
+                }
             }
 
             & > i

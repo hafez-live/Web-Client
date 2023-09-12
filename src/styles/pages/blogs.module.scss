@@ -216,6 +216,16 @@
             grid-gap: 3rem;
 
             margin-top: 2rem;
+
+            @media only screen and (max-width: 800px)
+            {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media only screen and (max-width: 550px)
+            {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     }
 }
@@ -229,6 +239,11 @@
 
     width: 100%;
     padding-top: 20rem;
+
+    @media only screen and (max-width: 650px)
+    {
+        padding-top: 14rem;
+    }
 
     &Image
     {
@@ -279,6 +294,11 @@
         gap: 3rem;
 
         font-size: 1.85rem;
+
+        @media only screen and (max-width: 750px)
+        {
+            flex-wrap: wrap;
+        }
 
         & > p
         {

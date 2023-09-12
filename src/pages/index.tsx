@@ -62,13 +62,13 @@ const Home = ({ poems, blogs }: HomeTypes) =>
     return (
         <>
             <Head>
-                <title>حافظ‌لایو - تمامی عزلیات و اشعار حافظ شیرازی</title>
+                <title>حافظ‌لایو - تمامی غزلیات و اشعار حافظ شیرازی</title>
             </Head>
 
             <header className={styles.homeHeader}>
                 <div className={styles.homeHeaderContent}>
                     <h1>
-                        حافظ‌لایو تمامی عزلیات و اشعار حافظ شیرازی
+                        حافظ‌لایو تمامی غزلیات و اشعار حافظ شیرازی
                     </h1>
                     <h2>
                         دسترسی به تمامی غزلیات حافظ به همراه معنی کامل
