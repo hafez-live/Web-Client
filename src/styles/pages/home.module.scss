@@ -28,11 +28,18 @@
             align-items: center;
             flex-direction: column;
 
+            padding: 0 2rem;
+
             & h1
             {
                 text-align: center;
                 margin-top: 8rem;
                 font-size: 6rem;
+
+                @media only screen and (max-width: 1150px)
+                {
+                    font-size: 5rem;
+                }
             }
 
             & h2
@@ -41,6 +48,11 @@
                 font-size: 4.5rem;
                 color: #d3cfe7;
                 font-family: 'YekanBakhRegular', sans-serif;
+
+                @media only screen and (max-width: 1150px)
+                {
+                    font-size: 3.5rem;
+                }
             }
 
             & > section
@@ -54,7 +66,7 @@
 
                 width: 100%;
                 max-width: 75rem;
-                padding-top: 5rem;
+                padding: 5rem 0 0;
 
                 & > form
                 {
@@ -83,6 +95,11 @@
                         outline: none;
                         border: none;
                         transition: all .2s;
+
+                        @media only screen and (max-width: 750px)
+                        {
+                            font-size: 1.5rem;
+                        }
                     }
 
                     & button
@@ -130,6 +147,11 @@
                     background: rgba(241, 239, 245, 0.9);
                     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
                     backdrop-filter: blur( 20px );
+
+                    @media only screen and (max-width: 75rem)
+                    {
+                        max-width: calc(100% - 4rem);
+                    }
 
                     & > li
                     {
@@ -289,11 +311,20 @@
             &Parent
             {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
                 column-gap: 2rem;
+                align-items: center;
+                justify-items: center;
+                grid-template-columns: repeat(3, 1fr);
 
                 padding: 10rem 0;
                 width: 100%;
+
+                @media only screen and (max-width: 900px)
+                {
+                    grid-gap: 3rem;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(3, 1fr);
+                }
             }
         }
     }
@@ -385,6 +416,12 @@
 
             width: 100%;
 
+            @media only screen and (max-width: 750px)
+            {
+                grid-template-rows: repeat(3, 20rem);
+                grid-template-columns: 1fr;
+            }
+
             & a
             {
                 display: flex;
@@ -473,6 +510,18 @@
                         background: transparent linear-gradient(180deg, rgba(53, 47, 58, 0.75) 20%, rgba(55, 40, 81, 0.9) 70%) 0 0 no-repeat padding-box;
                     }
                 }
+
+                @media only screen and (max-width: 750px)
+                {
+                    &:nth-child(1),
+                    &:nth-child(2),
+                    &:nth-child(3)
+                    {
+                        grid-column: auto;
+                        grid-row: auto;
+                    }
+                }
+
             }
         }
     }
@@ -545,6 +594,12 @@
         border-radius: 1rem;
         background: var(--color-background-secondary);
         padding: 5rem 8rem;
+
+        @media only screen and (max-width: 900px)
+        {
+            gap: 3rem;
+            flex-direction: column;
+        }
 
         &Content
         {
@@ -634,6 +689,13 @@
         height: 35rem;
         margin: 5rem 0 10rem;
 
+        @media only screen and (max-width: 900px)
+        {
+            flex-wrap: wrap;
+            height: auto;
+            padding: 10rem 0;
+        }
+
         &::before
         {
             content: "";
@@ -676,6 +738,33 @@
             &:last-child::before
             {
                 opacity: 0;
+            }
+
+            @media only screen and (max-width: 900px)
+            {
+                width: 40%;
+
+                &:nth-child(2)::before
+                {
+                    opacity: 0;
+                }
+            }
+
+            @media only screen and (max-width: 500px)
+            {
+                width: 100%;
+                margin-top: 4rem;
+
+                &::before
+                {
+                    left: auto;
+                    top: -1rem;
+
+                    height: .25rem;
+                    width: 100%;
+                    max-width: 20rem;
+                    opacity: .35 !important;
+                }
             }
         }
 

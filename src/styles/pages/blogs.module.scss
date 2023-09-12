@@ -11,6 +11,15 @@
         height: 50vh;
         padding-top: 20rem;
 
+        @media only screen and (max-width: 850px)
+        {
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            height: auto;
+        }
+
         &Image
         {
             position: relative;
@@ -19,6 +28,17 @@
             max-width: 60rem;
             overflow: hidden;
             border-radius: 1rem;
+
+            @media only screen and (max-width: 1000px)
+            {
+                max-width: 50rem;
+            }
+
+            @media only screen and (max-width: 850px)
+            {
+                height: 30rem;
+                max-width: 45rem;
+            }
         }
 
         &Author
@@ -57,6 +77,11 @@
             justify-content: flex-start;
             flex-direction: column;
 
+            @media only screen and (max-width: 850px)
+            {
+               width: 100%;
+            }
+
             & > h1
             {
                 font-size: 5rem;
@@ -89,6 +114,8 @@
         justify-content: flex-start;
         flex-direction: column;
         gap: .75rem;
+
+        min-height: 40rem;
 
         &Image
         {
@@ -154,10 +181,25 @@
     {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(auto-fit, 45rem);
+        grid-template-rows: repeat(auto-fit, min(40rem));
         grid-gap: 3rem;
 
         margin-top: 2rem;
+
+        @media only screen and (max-width: 1100px)
+        {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media only screen and (max-width: 800px)
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media only screen and (max-width: 550px)
+        {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
         &Header
         {
