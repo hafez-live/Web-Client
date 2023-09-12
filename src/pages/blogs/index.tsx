@@ -74,7 +74,10 @@ const Blogs = ({ blog }: BlogsTypes) =>
             </Head>
 
             <Main>
-                <Link href={ '/blogs/' + blog.data[0].slug } className={styles.blogsHeader}>
+                {
+                    blog.data
+                        ?
+                        <Link href={ '/blogs/' + blog.data[0].slug } className={styles.blogsHeader}>
                     <span className={styles.blogsHeaderImage}>
                         <Image
                             src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.data[0].thumbnail }` }
@@ -84,7 +87,7 @@ const Blogs = ({ blog }: BlogsTypes) =>
                             sizes={'100'}
                         />
                     </span>
-                    <div>
+                            <div>
                         <span className={styles.blogsHeaderAuthor}>
                             <span>
                                 <Image
@@ -105,19 +108,23 @@ const Blogs = ({ blog }: BlogsTypes) =>
                                 ۱ سال پیش
                             </p>
                         </span>
-                        <h1>
-                            { blog.data[0].title_fa }
-                        </h1>
-                        <p>
-                            { blog.data[0].summary_fa }
-                        </p>
-                        <i>
-                            { blog.data[0].to_read }
-                            <span />
-                            دقیقه برای خواندن
-                        </i>
-                    </div>
-                </Link>
+                                <h1>
+                                    { blog.data[0].title_fa }
+                                </h1>
+                                <p>
+                                    { blog.data[0].summary_fa }
+                                </p>
+                                <i>
+                                    { blog.data[0].to_read }
+                                    <span />
+                                    دقیقه برای خواندن
+                                </i>
+                            </div>
+                        </Link>
+
+                        :
+                        null
+                }
 
                 <h2 className={styles.blogsListHeader}>
                     خواندنی‌های حافظ‌لایو

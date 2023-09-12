@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from './error.module.scss';
+import styles from '@/components/error/error.module.scss';
 
 interface ErrorTypes
 {

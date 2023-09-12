@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from './footer.module.scss';
+import styles from '@/components/layouts/footer/footer.module.scss';
 
 const Footer = () =>
 {

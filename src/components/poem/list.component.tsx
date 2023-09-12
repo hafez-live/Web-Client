@@ -2,7 +2,7 @@ import React from 'react';
 import { Autoplay, Keyboard } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import PoemCard from './card.component';
+import PoemCard from '@/components/poem/card.component';
 
 import { IPoem } from '@/interfaces/poem.types';
 

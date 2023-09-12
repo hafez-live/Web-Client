@@ -76,20 +76,27 @@ const Poems = ({ poem }: PoemsTypes) =>
             </Head>
 
             <Main>
-                <header className={styles.poemsHeader}>
-                    <h2>
-                        غزل شماره { poem.data.id } حافظ شیرازی
-                    </h2>
-                    <div>
-                        <Newline content={ poem.data.content.split('\r\n').slice(0, 12).filter((item: string) => item !== '').join('\n') } />
-                        <p>
-                            { poem.data.content.split('\r\n').slice(12, 13).filter((item: string) => item !== '').join(' ').toString().substring(0,15) }...
-                            <Link href={`/poems/${ poem.data.id }`}>
-                                ادامه غزل
-                            </Link>
-                        </p>
-                    </div>
-                </header>
+                {
+                    poem.data
+                        ?
+                        <header className={styles.poemsHeader}>
+                            <h2>
+                                غزل شماره { poem.data.id } حافظ شیرازی
+                            </h2>
+                            <div>
+                                <Newline content={ poem.data.content.split('\r\n').slice(0, 12).filter((item: string) => item !== '').join('\n') } />
+                                <p>
+                                    { poem.data.content.split('\r\n').slice(12, 13).filter((item: string) => item !== '').join(' ').toString().substring(0,15) }...
+                                    <Link href={`/poems/${ poem.data.id }`}>
+                                        ادامه غزل
+                                    </Link>
+                                </p>
+                            </div>
+                        </header>
+                        :
+                        null
+                }
+
 
                 <h2 className={styles.poemsListHeader}>
                     غزلیات حافظ

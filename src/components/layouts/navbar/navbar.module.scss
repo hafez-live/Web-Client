@@ -17,6 +17,39 @@
     -webkit-backdrop-filter: blur( 20px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-radius: 1rem;
+    transition: all .2s;
+
+    & > i
+    {
+        display: none;
+
+        position: absolute;
+
+        left: 3rem;
+        top: 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    @media only screen and (max-width: 850px)
+    {
+        flex-direction: column;
+
+        height: 5.5rem;
+        overflow: hidden;
+
+        & > i
+        {
+           display: flex;
+        }
+    }
+
+    &Open
+    {
+        @media only screen and (max-width: 850px)
+        {
+            height: auto;
+        }
+    }
 
     &[data-secondery='true']
     {
@@ -45,9 +78,15 @@
         max-height: 100%;
         margin: 1rem 4rem 1rem 0;
 
-        & img
+        @media only screen and (max-width: 850px)
         {
-            height: 90%;
+            align-items: flex-start;
+            flex-direction: column;
+
+            height: 3rem;
+            min-height: 3rem;
+            min-width: auto;
+            max-width: 3rem;
         }
     }
 
@@ -55,10 +94,14 @@
     {
         display: flex;
         align-items: center;
+        gap: 4rem;
 
-        &List
+        @media only screen and (max-width: 850px)
         {
-            padding-right: 4rem;
+            gap: 1rem;
+            flex-direction: column;
+
+            margin-top: 2rem;
         }
 
         &Link
@@ -85,6 +128,13 @@
             gap: 2rem;
 
             margin-left: 4rem;
+
+            @media only screen and (max-width: 850px)
+            {
+                justify-content: flex-start;
+
+                margin: 1.5rem auto 1rem;
+            }
         }
 
         &Link

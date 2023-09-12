@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from './poem.module.scss';
+import styles from '@/components/poem/poem.module.scss';
 
 import { Newline } from '@/utils/helper';
 

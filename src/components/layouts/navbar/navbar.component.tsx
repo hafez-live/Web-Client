@@ -1,31 +1,37 @@
-import React from 'react';
-
 import Link from 'next/link';
 import Image from 'next/image';
-
+import classnames from 'classnames';
 import { useRouter } from 'next/router';
-import { BsGithub, BsDiscord } from 'react-icons/bs';
+import React, { useState } from 'react';
+
+import { BsGithub, BsDiscord, BsList } from 'react-icons/bs';
 
 import HafezTypography from '@/../public/static/icons/hafez-typography.png';
 import HafezTypography2 from '@/../public/static/icons/hafez-typography-2.png';
 
-import styles from './navbar.module.scss';
+import styles from '@/components/layouts/navbar/navbar.module.scss';
 
 const Navbar = () =>
 {
     const { pathname } = useRouter();
 
+    const [open, setOpen] = useState<boolean>(false);
+
     return (
-        <nav className={styles.nav} data-secondery={ pathname !== '/' }>
+        <nav className={classnames(styles.nav, { [styles.navOpen]: open })} data-secondery={ pathname !== '/' }>
             <Link href='/' className={styles.navLogo}>
                 <Image
                     src={ pathname !== '/' ? HafezTypography : HafezTypography2 }
                     alt='hafez.live logo'
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: 'contain' }}
                     sizes={'100'}
                 />
             </Link>
+
+            <i onClick={() => setOpen(!open)}>
+                <BsList />
+            </i>
 
             <ul className={styles.navItemLinks}>
                 <li className={styles.navItemLinksList}>
@@ -58,7 +64,7 @@ const Navbar = () =>
                     </Link>
                 </li>
                 <li className={styles.navItemSocialList}>
-                    <Link className={styles.navItemSocialLink} href='https://discord.gg/RUrks4JqW6'>
+                    <Link className={styles.navItemSocialLink} href='https://discord.gg/7pAr9NPD7X'>
                         <BsDiscord />
                     </Link>
                 </li>

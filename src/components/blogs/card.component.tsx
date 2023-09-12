@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import styles from '../../styles/pages/blogs.module.scss';
+import styles from '@/styles/pages/blogs.module.scss';
 
 import { IBlog } from '@/interfaces/blog.types';
 

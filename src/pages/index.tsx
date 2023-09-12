@@ -9,16 +9,15 @@ import type { GetStaticProps } from 'next';
 import { FaFileWord } from 'react-icons/fa6';
 import { FaArrowLeft, FaSearch, FaBook, FaCommentDots } from 'react-icons/fa';
 
-import PoemList from '../components/poem/list.component';
-import Main from '../components/layouts/main/main.component';
+import PoemList from '@/components/poem/list.component';
+import Main from '@/components/layouts/main/main.component';
 
 import { getPoems, getBlogs } from '@/lib/api';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import styles from '../styles/pages/home.module.scss';
-import process from 'process';
+import styles from '@/styles/pages/home.module.scss';
 
 import { IBlog } from '@/interfaces/blog.types';
 import { IPoem } from '@/interfaces/poem.types';
