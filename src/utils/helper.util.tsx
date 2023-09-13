@@ -32,7 +32,7 @@ export const timeSince = (date: Date) =>
     interval = seconds / 60;
 
     if (interval > 1)
-        return Math.floor(interval) + ' ذقیقه';
+        return Math.floor(interval) + ' دقیقه';
 
     return Math.floor(seconds) + ' ثانیه';
 };
