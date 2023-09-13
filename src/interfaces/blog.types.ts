@@ -8,6 +8,7 @@ export interface IBlog
     content_fa: string,
     to_read: number,
     meta_title_fa: string,
+    published_at: Date,
     readz: number,
     avatar: string,
     first_name: string,

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from '@/components/poem/poem.module.scss';
 
-import { Newline } from '@/utils/helper';
+import { Newline } from '@/utils/helper.util';
 
 import { IPoem } from '@/interfaces/poem.types';
 

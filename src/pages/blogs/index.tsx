@@ -29,7 +29,7 @@ const Blogs = ({ blog }: BlogsTypes) =>
 
     const [page, setPage] = useState<number>(1);
     const [hasMore, setHasMore] = useState<boolean>(true);
-    const [blogs, setBlogs] = useState<any[] | 'loading'>('loading');
+    const [blogs, setBlogs] = useState<IBlog[] | 'loading'>('loading');
 
     useEffect(() =>
     {
@@ -75,7 +75,7 @@ const Blogs = ({ blog }: BlogsTypes) =>
 
             <Main>
                 {
-                    blog.data
+                    blog?.data
                         ?
                         <Link href={ '/blogs/' + blog.data[0].slug } className={styles.blogsHeader}>
                             <span className={styles.blogsHeaderImage}>

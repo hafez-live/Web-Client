@@ -1,10 +1,12 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 import styles from '@/styles/pages/blogs.module.scss';
 
 import { IBlog } from '@/interfaces/blog.types';
+
+import { timeSince } from '@/utils/helper.util';
 
 interface BlogTypes
 {
@@ -13,6 +15,23 @@ interface BlogTypes
 
 const BlogCard = ({ blog }: BlogTypes) =>
 {
+    const [time, setTime] = useState<string | number>('');
+
+    const createdAt = new Date(blog.published_at);
+    let differenceInTime = timeSince(createdAt);
+
+    useEffect(() =>
+    {
+        const timeout = setTimeout(() =>
+        {
+            differenceInTime = timeSince(createdAt);
+
+            setTime(differenceInTime);
+        }, 1000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
     return (
         <Link href={ '/blogs/' + blog.slug } className={styles.blogsCard}>
             <span className={styles.blogsCardImage}>
@@ -41,7 +60,7 @@ const BlogCard = ({ blog }: BlogTypes) =>
                     ·
                 </i>
                 <p>
-                    ۱ سال پیش
+                    { time } پیش
                 </p>
             </span>
             <h4>

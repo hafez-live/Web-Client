@@ -13,8 +13,8 @@ class MyDocument extends Document
         return (
             <Html lang='fa' dir='rtl'>
                 <Head>
-                    <link rel='icon' href='https://hafez.live/static/favicon.png'/>
-                    <link rel='apple-touch-icon' href='https://hafez.live/static/favicon.png'/>
+                    <link rel='icon' href='https://hafez.live/favicon.png'/>
+                    <link rel='apple-touch-icon' href='https://hafez.live/favicon.png'/>
                     <link rel='canonical' href='https://hafez.live' />
 
                     <meta property='theme-color' content='#423d91'/>
@@ -29,13 +29,13 @@ class MyDocument extends Document
                     <meta property='og:url' content='https://hafez.live/'/>
                     <meta property='og:title' content='Hafez Live'/>
                     <meta property='og:description' content='Hafez.Live is an online platform for introducing the great Iranian poet and lyricist, Hafez Shirazi, to people around the world and familiarizing everyone with his poems and lyrics.'/>
-                    <meta property='og:image' content='https://hafez.live/static/favicon.png'/>
+                    <meta property='og:image' content='https://hafez.live/favicon.png'/>
 
                     <meta property='twitter:card'/>
                     <meta property='twitter:url' content='https://hafez.live/'/>
                     <meta property='twitter:title' content='Hafez Live'/>
                     <meta property='twitter:description' content='Hafez.Live is an online platform for introducing the great Iranian poet and lyricist, Hafez Shirazi, to people around the world and familiarizing everyone with his poems and lyrics.'/>
-                    <meta property='twitter:image' content='https://hafez.live/static/favicon.png'/>
+                    <meta property='twitter:image' content='https://hafez.live/favicon.png'/>
 
 
                     <meta charSet='UTF-8' />

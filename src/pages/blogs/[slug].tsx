@@ -15,10 +15,13 @@ import { getBlogs, getBlog } from '@/lib/api';
 
 import { IBlog } from '@/interfaces/blog.types';
 
+import { timeSince } from '@/utils/helper.util';
+
 const Blog = () =>
 {
     const { query } = useRouter();
 
+    const [time, setTime] = useState<string | number>('');
     const [blog, setBlog] = useState<IBlog | 'loading' | 'error'>('loading');
     const [hottestBlogs, setHottestBlogs] = useState<IBlog[] | 'loading'>('loading');
 
@@ -59,6 +62,25 @@ const Blog = () =>
             }
         )();
     }, [query]);
+
+    useEffect(() =>
+    {
+        if (blog !== 'loading' && blog !== 'error')
+        {
+            const createdAt = new Date(blog.published_at);
+            let differenceInTime = timeSince(createdAt);
+
+            const timeout = setTimeout(() =>
+            {
+                differenceInTime = timeSince(createdAt);
+
+                setTime(differenceInTime);
+            }, 1000);
+
+            return () => clearTimeout(timeout);
+        }
+    }, [blog]);
+
 
     return (
         <>
@@ -109,7 +131,7 @@ const Blog = () =>
                                     <div>
                                         <p>
                                             <BsCalendarFill />
-                                            نوشته شده در ۴ سال پیش
+                                            نوشته شده در { time } پیش
                                         </p>
                                         <p>
                                             <BsClockFill />

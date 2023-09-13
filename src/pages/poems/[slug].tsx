@@ -14,7 +14,7 @@ import styles from '@/styles/pages/poems.module.scss';
 
 import { getPoem, getPoems } from '@/lib/api';
 
-import { Newline } from '@/utils/helper';
+import { Newline } from '@/utils/helper.util';
 
 import { IPoem } from '@/interfaces/poem.types';
 
@@ -61,9 +61,15 @@ const Poem = ({ poem, poems }: PoemTypes) =>
 
     return (
         <>
-            <Head>
-                <title>حافظ‌لایو - غزل شماره { poem.data.id } از دیوان غزلیات حافظ شیرازی</title>
-            </Head>
+            {
+                poem?.data
+                    ?
+                    <Head>
+                        <title>حافظ‌لایو - غزل شماره { poem.data.id } از دیوان غزلیات حافظ شیرازی</title>
+                    </Head>
+                    :
+                    null
+            }
 
             <Main>
                 {

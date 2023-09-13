@@ -13,7 +13,7 @@ import styles from '@/styles/pages/poems.module.scss';
 
 import { getPoem } from '@/lib/api';
 
-import { Newline } from '@/utils/helper';
+import { Newline } from '@/utils/helper.util';
 
 import { IPoem } from '@/interfaces/poem.types';
 
