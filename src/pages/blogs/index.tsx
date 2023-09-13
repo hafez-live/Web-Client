@@ -78,36 +78,36 @@ const Blogs = ({ blog }: BlogsTypes) =>
                     blog.data
                         ?
                         <Link href={ '/blogs/' + blog.data[0].slug } className={styles.blogsHeader}>
-                    <span className={styles.blogsHeaderImage}>
-                        <Image
-                            src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.data[0].thumbnail }` }
-                            alt={ blog.data[0].slug }
-                            fill
-                            style={{ objectFit: 'cover' }}
-                            sizes={'100'}
-                        />
-                    </span>
-                            <div>
-                        <span className={styles.blogsHeaderAuthor}>
-                            <span>
+                            <span className={styles.blogsHeaderImage}>
                                 <Image
-                                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.data[0].avatar }` }
-                                    alt={ blog.data[0].first_name + ' ' + blog.data[0].last_name }
+                                    src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/blog/uploaded-image/${ blog.data[0].thumbnail }` }
+                                    alt={ blog.data[0].slug }
                                     fill
                                     style={{ objectFit: 'cover' }}
                                     sizes={'100'}
                                 />
                             </span>
-                            <p>
-                                { blog.data[0].first_name + ' ' + blog.data[0].last_name }
-                            </p>
-                            <i>
+                            <div>
+                                <span className={styles.blogsHeaderAuthor}>
+                                    <span>
+                                        <Image
+                                            src={ `${ process.env.NEXT_PUBLIC_SERVER_IP_OR_URL }/account/uploaded-image/${ blog.data[0].avatar }` }
+                                            alt={ blog.data[0].first_name + ' ' + blog.data[0].last_name }
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                            sizes={'100'}
+                                        />
+                                    </span>
+                                    <p>
+                                        { blog.data[0].first_name + ' ' + blog.data[0].last_name }
+                                    </p>
+                                    <i>
                                 ·
-                            </i>
-                            <p>
+                                    </i>
+                                    <p>
                                 ۱ سال پیش
-                            </p>
-                        </span>
+                                    </p>
+                                </span>
                                 <h1>
                                     { blog.data[0].title_fa }
                                 </h1>
